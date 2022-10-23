@@ -1,9 +1,7 @@
 <?php
-$host="localhost";
-$user="root";
-$pass="";
-$database="projekti";
-$conn=mysqli_connect($host, $user, $pass);
-mysqli_select_db($conn, "projekti") or die("Error conecting to db.");
-
+$con = mysqli_connect("localhost","root","","projekti");
+	if (mysqli_connect_errno()){
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+		die();
+		}
 ?>

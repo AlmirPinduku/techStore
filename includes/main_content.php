@@ -30,45 +30,12 @@ while($row=mysqli_fetch_array($run_produktet)){
 
 ?>	
 
-<div class="flex flex-wrap -m-4 logoo section2animation">
-      <div class="xl:w-1/4 md:w-1/2 p-4">
-        <div class="bg-gray-500 bg-opacity-40 p-6 rounded-lg">
-		<img src="images/<?php echo $produkt_image; ?>" class="h-40 rounded w-full object-cover object-center mb-6"/>
-		  <h3 class="tracking-widest text-yellow-400 text-xs font-medium title-font">Apple</h3>
-          <a  class="text-lg text-white font-medium title-font mb-4" href="pages.php?id=<?php echo $produkt_id; ?>"><?php echo $produkt_title; ?> </a>
-          <p class="leading-relaxed text-base"><?php echo $produkt_content; ?>... <a href="pages.php?id=<?php echo $produkt_id; ?>"><span class = "text-white">Read More</span></a></p>
-		  <p class="text-lg text-white font-medium title-font mt-2"><?php echo $produkt_qmimi; ?></p>
-        </div>
-      </div>
-
-      <div class="xl:w-1/4 md:w-1/2 p-4">
-        <div class="bg-gray-500 bg-opacity-40 p-6 rounded-lg">
-		<img src="images/<?php echo $produkt_image; ?>" class="h-40 rounded w-full object-cover object-center mb-6"/>          <h3 class="tracking-widest text-yellow-400 text-xs font-medium title-font">Apple</h3>
-          <a  class="text-lg text-white font-medium title-font mb-4" href="pages.php?id=<?php echo $produkt_id; ?>"><?php echo $produkt_title; ?> </a>
-          <p class="leading-relaxed text-base"><?php echo $produkt_content; ?>... <a href="pages.php?id=<?php echo $produkt_id; ?>"><span class = "text-white">Read More</span></a></p>
-		  <p class="text-lg text-white font-medium title-font mt-2"><?php echo $produkt_qmimi; ?></p>
-        </div>
-      </div>
-
-      <div class="xl:w-1/4 md:w-1/2 p-4">
-        <div class="bg-gray-500 bg-opacity-40 p-6 rounded-lg">
-		<img src="images/<?php echo $produkt_image; ?>" class="h-40 rounded w-full object-cover object-center mb-6"/>          <h3 class="tracking-widest text-yellow-400 text-xs font-medium title-font">Apple</h3>
-          <a  class="text-lg text-white font-medium title-font mb-4" href="pages.php?id=<?php echo $produkt_id; ?>"><?php echo $produkt_title; ?> </a>
-          <p class="leading-relaxed text-base"><?php echo $produkt_content; ?>... <a href="pages.php?id=<?php echo $produkt_id; ?>"><span class = "text-white">Read More</span></a></p>
-		  <p class="text-lg text-white font-medium title-font mt-2"><?php echo $produkt_qmimi; ?></p>
-        </div>
-      </div>
-
-      <div class="xl:w-1/4 md:w-1/2 p-4">
-        <div class="bg-gray-500 bg-opacity-40 p-6 rounded-lg">
-		<img src="images/<?php echo $produkt_image; ?>" class="h-40 rounded w-full object-cover object-center mb-6"/>          <h3 class="tracking-widest text-yellow-400 text-xs font-medium title-font">Apple</h3>
-          <a  class="text-lg text-white font-medium title-font mb-4" href="pages.php?id=<?php echo $produkt_id; ?>"><?php echo $produkt_title; ?> </a>
-          <p class="leading-relaxed text-base"><?php echo $produkt_content; ?>... <a href="pages.php?id=<?php echo $produkt_id; ?>"><span class = "text-white">Read More</span></a></p>
-		  <p class="text-lg text-white font-medium title-font mt-2"><?php echo $produkt_qmimi; ?></p>
-        </div>
-      </div>
-	  
-    </div>
+                <img img src="images/<?php echo $produkt_image; ?>" class="hover:grow hover:shadow-lg"/>
+                <div class="pt-3 flex items-center justify-between">
+                    <p class=""><?php echo $produkt_title; ?> </p>
+                    
+                </div>
+                <p class="pt-1 text-gray-900"><?php echo $produkt_qmimi; ?> </p>
 <?php } ?>
 
 
