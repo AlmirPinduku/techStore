@@ -8,238 +8,217 @@
   <title>Shopping</title>
   <link href="styles.css" rel="stylesheet">
   <link href="./input.css" rel="stylesheet">
+  <link rel="stylesheet" href="input.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="//code.tidio.co/fptihodyl0nxqlspzxvujwsxyrpxttll.js" async></script>
   <script defer src="app.js"></script>
-  <style>
-    .work-sans {
-      font-family: 'Work Sans', sans-serif;
-    }
 
-    #menu-toggle:checked+#menu {
-      display: block;
-    }
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
-    .hover\:grow {
-      transition: all 0.3s;
-      transform: scale(1);
-    }
+	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
-    .hover\:grow:hover {
-      transform: scale(1.02);
-    }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    .carousel-open:checked+.carousel-item {
-      position: static;
-      opacity: 100;
-    }
+<style>
+  *{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	text-decoration: none;
+	list-style: none;
+}
+:root{
+	--bg-color: #222327;
+	--text-color: #fff;
+	--main-color: #fdfd29;
+}
+body{
+	min-height: 100vh;
+	background: var(--bg-color);
+	color: var(--text-color);
+}
+header{
+	position: fixed;
+	width: 100%;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: transparent;
+	padding: 28px 12%;
+	transition: all .50s ease;
+}
+.logo{
+	display: flex;
+	align-items: center;
+}
+.logo i{
+	color: var(--main-color);
+	font-size: 28px;
+	margin-right: 3px;
+}
+.logo span{
+	color: var(--text-color);
+	font-size: 1.7rem;
+	font-weight: 600;
+}
+.navbar{
+	display: flex;
+}
+.navbar a{
+	color: var(--text-color);
+	font-size: 1.1rem;
+	font-weight: 500;
+	padding: 5px 0;
+	margin: 0px 30px;
+	transition: all .50s ease;
+}
+.navbar a:hover{
+	color: var(--main-color);
+}
+.navbar a.active{
+	color: var(--main-color);
+}
+.main{
+	display: flex;
+	align-items: center;
+}
+.main a{
+	margin-right: 25px;
+	margin-left: 10px;
+	color: var(--text-color);
+	font-size: 1.1rem;
+	font-weight: 500;
+	transition: all .50s ease;
+}
+.user{
+	display: flex;
+	align-items: center;
+}
+.user i{
+	font-size: 28px;
+	margin-right: 7px;
+}
+.main a:hover{
+	color: var(--main-color);
+}
+#menu-icon{
+	font-size: 35px;
+	color: var(--text-color);
+	cursor: pointer;
+	z-index: 10001;
+	display: none;
+}
 
-    .carousel-item {
-      -webkit-transition: opacity 0.6s ease-out;
-      transition: opacity 0.6s ease-out;
-    }
 
-    #carousel-1:checked~.control-1,
-    #carousel-2:checked~.control-2,
-    #carousel-3:checked~.control-3 {
-      display: block;
-    }
+@media (max-width: 1280px){
+	header{
+		padding: 14px 2%;
+		transition: .2s;
+	}
+	.navbar a{
+		padding: 5px 0;
+		margin: 0px 20px;
+	}
+}
 
-    .carousel-indicators {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      position: absolute;
-      bottom: 2%;
-      left: 0;
-      right: 0;
-      text-align: center;
-      z-index: 10;
-    }
-
-    #carousel-1:checked~.control-1~.carousel-indicators li:nth-child(1) .carousel-bullet,
-    #carousel-2:checked~.control-2~.carousel-indicators li:nth-child(2) .carousel-bullet,
-    #carousel-3:checked~.control-3~.carousel-indicators li:nth-child(3) .carousel-bullet {
-      color: #000;
-      /*Set to match the Tailwind colour you want the active one to be */
-    }
-  </style>
-
+@media (max-width: 1090px){
+	#menu-icon{
+		display: block;
+	}
+	.navbar{
+		position: absolute;
+		top: 100%;
+		right: -100%;
+		width: 270px;
+		height: 29vh;
+		background: var(--main-color);
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		border-radius: 10px;
+		transition: all .50s ease;
+	}
+	.navbar a{
+		display: block;
+		margin: 12px 0;
+		padding: 0px 25px;
+		transition: all .50s ease;
+	}
+	.navbar a:hover{
+		color: var(--text-color);
+		transform: translateY(5px);
+	}
+	.navbar a.active{
+		color: var(--text-color);
+	}
+	.navbar.open{
+		right: 2%;
+	}
+}
+</style>
 </head>
 
 <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
 
-  <!--Nav-->
-  <nav id="header" class="w-full z-30 top-0 py-1">
-    <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
-
-      <label for="menu-toggle" class="cursor-pointer md:hidden block">
-        <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-          <title>menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-        </svg>
-      </label>
-      <input class="hidden" type="checkbox" id="menu-toggle" />
-
-      <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
-        <nav>
-          <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-            <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Shop</a></li>
-            <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">About</a></li>
-          </ul>
-        </nav>
-      </div>
-
-      <div class="order-1 md:order-2">
-        <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
-          ShoppingOnline
-        </a>
-      </div>
-
-      <div class="order-2 md:order-3 flex items-center" id="nav-content">
-
-        <a class="inline-block no-underline hover:text-black" href="#">
-          <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <circle fill="none" cx="12" cy="7" r="3" />
-            <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z" />
-          </svg>
-        </a>
-
-        <a class="pl-3 inline-block no-underline hover:text-black" href="#">
-          <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path d="M21,7H7.462L5.91,3.586C5.748,3.229,5.392,3,5,3H2v2h2.356L9.09,15.414C9.252,15.771,9.608,16,10,16h8 c0.4,0,0.762-0.238,0.919-0.606l3-7c0.133-0.309,0.101-0.663-0.084-0.944C21.649,7.169,21.336,7,21,7z M17.341,14h-6.697L8.371,9 h11.112L17.341,14z" />
-            <circle cx="10.5" cy="18.5" r="1.5" />
-            <circle cx="17.5" cy="18.5" r="1.5" />
-          </svg>
-        </a>
-
-      </div>
-    </div>
-  </nav>
+<header>
+		<a href="#" class="logo"><span>techStore</span></a>
+    
+		<div class="main">
+			<a href="#" class="user"><i class="fa-solid fa-plus"></i>Krijo një shpallje</a>
+			<div class="bx bx-menu" id="menu-icon"></div>
+		</div>
+    
+	</header>
 
   <section class="w-full mx-auto bg-nordic-gray-light flex pt-12 md:pt-0 md:items-center bg-cover bg-right" style="max-width:1600px; height: 18rem; background-image: url('./images/banner.png');">
 
     <div class="container mx-auto">
-
-      <div class="flex flex-col w-full lg:w-1/2 justify-center items-start  px-6 tracking-wide">
-        <h1 class="text-white text-2xl my-4">Check out all the products here.</h1>
-        <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black" href="#">products</a>
-
-      </div>
-
     </div>
-
   </section>
+ 
 
 
-
-  <section class="bg-white py-8">
-
-    <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
-
-      <nav id="store" class="w-full z-30 top-0 px-6 py-1">
-        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
-
-          <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
-            Store
-          </a>
-
-          <div class="flex items-center" id="store-nav-content">
-
-            <a class="pl-3 inline-block no-underline hover:text-black" href="#">
-              <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
-              </svg>
-            </a>
-
-            <a class="pl-3 inline-block no-underline hover:text-black" href="#">
-              <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z" />
-              </svg>
-            </a>
-
-          </div>
-        </div>
-      </nav>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <footer class="container mx-auto bg-white py-8 border-t border-gray-400">
-    <div class="container flex px-3 py-8 ">
-      <div class="w-full mx-auto flex flex-wrap">
-        <div class="flex w-full lg:w-1/2 ">
-          <div class="px-3 md:px-0">
-            <h3 class="font-bold text-gray-900">About</h3>
-            <p class="py-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel mi ut felis tempus commodo nec id erat. Suspendisse consectetur dapibus velit ut lacinia.
-            </p>
-          </div>
-        </div>
-        <div class="flex w-full lg:w-1/2 lg:justify-end lg:text-right">
-          <div class="px-3 md:px-0">
-            <h3 class="font-bold text-gray-900">Social</h3>
-            <ul class="list-reset items-center pt-3">
+  <section class="bg-white py-8 container mx-auto">
+    <div class="container mx-auto flex flex-wrap">
+      <aside class="w-64 mr-20 h-fit border" aria-label="Sidebar">
+        <div class="overflow-y-auto py-4 px-3  rounded">
+            <ul class="space-y-2">
               <li>
-                <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Add social links</a>
+                    <span class="ml-3 flex justify-center text-2xl">Top Brendet</span>
+                    <div class="border-b border-black opacity-50"></div>
               </li>
+              <li>
+                  <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 opacity-80 hover:opacity-100">
+                    <span class="flex-1 ml-3 whitespace-nowrap">example Apple</span>
+                    <span class="inline-flex justify-center items-center px-2 ml-3 text-sm font-medium text-gray-800 bg-red-300 rounded-full">112</span>
+                  </a>
+              </li>
+              
             </ul>
-          </div>
         </div>
-      </div>
+      </aside>
+
+
+      
+
+      <a href="#" class="w-full flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+        <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="./images/14pro.png" alt="">
+        <div class="flex flex-col justify-between p-4 leading-normal">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+        </div>
+    </a>
+         
+    
     </div>
-  </footer>
+  </section>
 
 
 </body>

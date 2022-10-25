@@ -30,12 +30,12 @@ while($row=mysqli_fetch_array($run_produktet)){
 
 ?>	
 
-                <img img src="images/<?php echo $produkt_image; ?>" class="hover:grow hover:shadow-lg"/>
-                <div class="pt-3 flex items-center justify-between">
+                <img img src="images/<?php echo $produkt_image; ?>" class=""/>
+                <div class="">
                     <p class=""><?php echo $produkt_title; ?> </p>
                     
                 </div>
-                <p class="pt-1 text-gray-900"><?php echo $produkt_qmimi; ?> </p>
+                <p class=""><?php echo $produkt_qmimi; ?> </p>
 <?php } ?>
 
 
