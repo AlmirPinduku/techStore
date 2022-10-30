@@ -6,11 +6,8 @@
 	</head>
 
 <body>
-<div><?php include("includes/header.php")?></div>
-<div><?php include("includes/navbar.php")?></div>
 
 <div id="main_content">
-<h1>Rezultati i kerkuar eshte ketu</h1>
 <?php 
 $con=mysqli_connect("localhost","root","","projekti");
 mysqli_select_db($con,"projekti");
@@ -34,7 +31,7 @@ if(isset($_GET['search'])){
 	?>
 	<center>
 	
-	
+
 	<h2>
 	<a href="pages.php?id=<?php echo $produkt_id; ?>">
 	<?php echo $produkt_title; ?>
@@ -50,15 +47,5 @@ if(isset($_GET['search'])){
 </div>
 
 
-
-
-<div><?php include("includes/sidebar.php")?></div>
-
-
-
-<div id="footer">
-<br />* Dizajnuar nga:<b>Arianit Tershnjaku Argjend Rifaj 
-          dhe Emsal Halimi.</b> 2016 *
-</div>
 </body>
 </html>

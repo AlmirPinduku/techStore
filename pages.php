@@ -31,7 +31,6 @@ while($row=mysqli_fetch_array($run_query)){
 	
 
 ?>
-<?php include("./includes/navbar.php") ?>
 <section class="text-gray-400 bg-[#333333] body-font overflow-hidden h-full">
   <div class="container px-5 py-60 mx-auto">
     <div class="lg:w-4/5 mx-auto flex flex-wrap">
@@ -92,7 +91,6 @@ while($row=mysqli_fetch_array($run_query)){
     </div>
   </div>
 </section>
-<?php include("./includes/footer.php") ?>
 
 <?php } }?>
 </div>
