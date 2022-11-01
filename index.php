@@ -46,13 +46,44 @@ else{
 		<a href="index.php" class="logo"><span>techStore</span></a>
 		<div class="main">
 			<a href="./shtoProdukt.php" class="user"><i class="fa-solid fa-plus"></i>Krijo një shpallje</a>
-			<div class="bx bx-menu" id="menu-icon"></div>
 		</div>
 	</header>
   
-  <section class="w-full mx-auto bg-nordic-gray-light flex pt-12 md:pt-0 md:items-center bg-cover bg-right max-w-full bg-black" style="max-width:1600px; height: 18rem; background-image: url('./images/ttten.svg');">
-    <div class="container mx-auto flex justify-center h-14">
-      <!-- <?php //include('search.php');?> -->
+  <section class="w-full mx-auto bg-nordic-gray-light flex pt-16 md:pt-0 md:items-center bg-cover bg-right max-w-full bg-black" style="max-width:1600px; height: 19rem; background-image: url('./images/ttten.svg');">
+    <div class="container mx-auto flex justify-center h-12">
+
+        <form action="search.php" method="get" enctype="multi/form-data" class="w-full flex justify-center max-w-7xl ">
+              <input type="text" name="value" placeholder="Kerko produktin
+              " size="25" class="w-full pl-3 rounded-md">
+
+              <button type="submit" name="search" class="btn btn-outline btn-info ml-4">SEARCH </button>
+        </form>
+
+
+                    <?php 
+                $con=mysqli_connect("localhost","root","","projekti");
+                mysqli_select_db($con,"projekti");
+
+                if(isset($_GET['search'])){
+                  
+                  $search_id = $_GET['value'];
+
+                  $search_query = "select * from produktet where produkt_title
+                  like '%$search_id%'";
+                  
+                  $run_query = mysqli_query($con, $search_query);
+                  
+                  while ($search_row=mysqli_fetch_array($run_query)){
+                  
+                  $produkt_id = $search_row['produkt_id'];
+                  $produkt_title = $search_row['produkt_title'];	
+                  $produkt_image = $search_row['produkt_image'];	
+                  $produkt_content = substr($search_row['produkt_content'],0,150);	
+                  
+                  ?>
+ 
+
+                <?php } }?>
     </div>
   </section>
  
@@ -61,7 +92,7 @@ else{
         <div class="container px-6 py-8 mx-auto">
             <div class="lg:flex lg:-mx-2">
                 <div class="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4 ">
-                  <h1 class="flex justify-center text-2xl text-black">Top Brendet</h1>
+                  <h1 class="flex justify-center text-2xl text-black uppercase">Top Brendet</h1>
                   <div class="border-b-2 border-black opacity-70"></div>
                     <a href="#" class="block font-medium text-black  hover:underline">Apple</a>
                 </div>
@@ -97,7 +128,7 @@ else{
                       $page_first_result = ($page-1) * $results_per_page;  
                     
                       //retrieve the selected results from database   
-                      $query = "SELECT *FROM `produktet` LIMIT " . $page_first_result . ',' . $results_per_page ;  
+                      $query = "SELECT *FROM `produktet` LIMIT " . $page_first_result . ',' . $results_per_page;  
                       $result = mysqli_query($con, $query);  
 
                     while($row=mysqli_fetch_array($result)){
