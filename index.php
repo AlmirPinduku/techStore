@@ -43,9 +43,9 @@ else{
 <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
 
 <header class="">
-		<a href="#" class="logo"><span>techStore</span></a>
+		<a href="index.php" class="logo"><span>techStore</span></a>
 		<div class="main">
-			<a href="#" class="user"><i class="fa-solid fa-plus"></i>Krijo një shpallje</a>
+			<a href="./shtoProdukt.php" class="user"><i class="fa-solid fa-plus"></i>Krijo një shpallje</a>
 			<div class="bx bx-menu" id="menu-icon"></div>
 		</div>
 	</header>
@@ -73,35 +73,59 @@ else{
                     </div>
                     <div class="border-b-2 border-black opacity-70 w-full mt-4"></div>                      
                 <?php
-                    $con=mysqli_connect("localhost","root","","projekti");
-                    mysqli_select_db($con,"projekti");
+                  $con=mysqli_connect("localhost","root","","projekti");
+                  mysqli_select_db($con,"projekti");
+                    
+                    $results_per_page = 10;  
+  
+                      //find the total number of results stored in the database  
+                      $query = "select * from `produktet`";  
+                      $result = mysqli_query($con, $query);  
+                      $number_of_result = mysqli_num_rows($result);  
+                    
+                      //determine the total number of pages available  
+                      $number_of_page = ceil ($number_of_result / $results_per_page);  
+                    
+                      //determine which page number visitor is currently on  
+                      if (!isset ($_GET['page']) ) {  
+                          $page = 1;  
+                      } else {  
+                          $page = $_GET['page'];  
+                      }  
+                    
+                      //determine the sql LIMIT starting number for the results on the displaying page  
+                      $page_first_result = ($page-1) * $results_per_page;  
+                    
+                      //retrieve the selected results from database   
+                      $query = "SELECT *FROM `produktet` LIMIT " . $page_first_result . ',' . $results_per_page ;  
+                      $result = mysqli_query($con, $query);  
 
-                    $select_produktet = "SELECT * FROM `produktet`";
-
-                    $run_produktet = mysqli_query($con, $select_produktet);
-
-                    while($row=mysqli_fetch_array($run_produktet)){
+                    while($row=mysqli_fetch_array($result)){
                       
                       $produkt_id = $row['produkt_id'];
                       $produkt_title = $row['produkt_title'];
                       $produkt_qmimi = $row['produkt_qmimi'];
                       $produkt_image = $row['produkt_image'];
                       $produkt_keywords = $row['produkt_keywords'];
-                      $produkt_content = substr($row['produkt_content'],0,200);
+                      $qyteti = $row['qyteti'];
+                      $data = $row['data'];
+                      $produkt_content = substr($row['produkt_content'],0,30);
                       
-
+                        
                     ?>	
-
-                      <div class="grid grid-cols-1 gap-1 mt-8 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 mb-3">
-                          <section class="w-full">
-                            <a href="pages.php?id=<?php echo $produkt_id; ?>" class="flex flex-col items-center bg-[#242424] rounded-lg border shadow-md md:flex-row hover:bg-gray-100 dark:border-black  dark:hover:bg-[#191919]">
-                              <img class="bg-white p-4 object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-                               src="./images/<?php echo $produkt_image; ?>" alt="erorr404">
-                                <div class="flex flex-col justify-between p-4 leading-normal">
-                                <div class="flex justify-between">
-                                      <p class="text-sm flex ">Qyteti</p>
-                                      <p class="flex">Data</p>
+                      <div class="grid grid-cols-1 gap-1 mt-2 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 mb-2">
+                          <section class="w-full mt-2">
+                          <div class="flex justify-between">
+                                      <p class="text-sm flex "><?php echo $qyteti; ?></p>
+                                      <p class="flex"><?php echo $data; ?></p>
                                     </div>
+                            <a href="pages.php?id=<?php echo $produkt_id; ?>" class="flex flex-col items-center bg-[#242424] rounded-lg border shadow-md md:flex-row hover:bg-gray-100 dark:border-black  dark:hover:bg-[#191919]">
+                              
+                            <img class="bg-white p-4 object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+                               src="./images/<?php echo $produkt_image; ?>" alt="erorr404">
+                               
+                                <div class="flex flex-col justify-between p-4 leading-normal">
+                              
 
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white"><?php echo $produkt_title; ?></h5>
                                     <p class="mb-3 font-normal text-white opacity-70"><?php echo $produkt_content; ?>...</p>
@@ -112,11 +136,21 @@ else{
                                 </div>
                             </a>
                         </section>
-                          
-                       
-                        
                       </div>
+                      
                       <?php } ?>
+
+                      <?php 
+                      
+                      for($page = 1; $page<= $number_of_page; $page++) {  
+                        echo 
+                        '
+                        <a class="inline-flex items-center py-2 px-4 text-sm font-medium" href = "index.php?page=' . $page . '">' . $page . ' </a>
+
+                        ';  
+                    } 
+                    ?>
+
                 </div>
             </div>
         </div>
