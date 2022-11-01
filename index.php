@@ -1,3 +1,15 @@
+<?php
+	if(!isset($_SESSION)) 
+	{ 
+		session_start(); 
+	} 
+
+if(!isset($_SESSION['user_name'])){
+
+}
+else{
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,241 +19,147 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shopping</title>
   <link href="styles.css" rel="stylesheet">
-  <link href="./input.css" rel="stylesheet">
+  <link href="./nav.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="//code.tidio.co/fptihodyl0nxqlspzxvujwsxyrpxttll.js" async></script>
   <script defer src="app.js"></script>
-  <style>
-    .work-sans {
-      font-family: 'Work Sans', sans-serif;
-    }
 
-    #menu-toggle:checked+#menu {
-      display: block;
-    }
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
-    .hover\:grow {
-      transition: all 0.3s;
-      transform: scale(1);
-    }
+	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
-    .hover\:grow:hover {
-      transform: scale(1.02);
-    }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    .carousel-open:checked+.carousel-item {
-      position: static;
-      opacity: 100;
-    }
 
-    .carousel-item {
-      -webkit-transition: opacity 0.6s ease-out;
-      transition: opacity 0.6s ease-out;
-    }
 
-    #carousel-1:checked~.control-1,
-    #carousel-2:checked~.control-2,
-    #carousel-3:checked~.control-3 {
-      display: block;
-    }
-
-    .carousel-indicators {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      position: absolute;
-      bottom: 2%;
-      left: 0;
-      right: 0;
-      text-align: center;
-      z-index: 10;
-    }
-
-    #carousel-1:checked~.control-1~.carousel-indicators li:nth-child(1) .carousel-bullet,
-    #carousel-2:checked~.control-2~.carousel-indicators li:nth-child(2) .carousel-bullet,
-    #carousel-3:checked~.control-3~.carousel-indicators li:nth-child(3) .carousel-bullet {
-      color: #000;
-      /*Set to match the Tailwind colour you want the active one to be */
-    }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.33.0/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
 <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
 
-  <!--Nav-->
-  <nav id="header" class="w-full z-30 top-0 py-1">
-    <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
-
-      <label for="menu-toggle" class="cursor-pointer md:hidden block">
-        <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-          <title>menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-        </svg>
-      </label>
-      <input class="hidden" type="checkbox" id="menu-toggle" />
-
-      <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
-        <nav>
-          <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-            <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Shop</a></li>
-            <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">About</a></li>
-          </ul>
-        </nav>
-      </div>
-
-      <div class="order-1 md:order-2">
-        <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
-          ShoppingOnline
-        </a>
-      </div>
-
-      <div class="order-2 md:order-3 flex items-center" id="nav-content">
-
-        <a class="inline-block no-underline hover:text-black" href="#">
-          <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <circle fill="none" cx="12" cy="7" r="3" />
-            <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z" />
-          </svg>
-        </a>
-
-        <a class="pl-3 inline-block no-underline hover:text-black" href="#">
-          <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path d="M21,7H7.462L5.91,3.586C5.748,3.229,5.392,3,5,3H2v2h2.356L9.09,15.414C9.252,15.771,9.608,16,10,16h8 c0.4,0,0.762-0.238,0.919-0.606l3-7c0.133-0.309,0.101-0.663-0.084-0.944C21.649,7.169,21.336,7,21,7z M17.341,14h-6.697L8.371,9 h11.112L17.341,14z" />
-            <circle cx="10.5" cy="18.5" r="1.5" />
-            <circle cx="17.5" cy="18.5" r="1.5" />
-          </svg>
-        </a>
-
-      </div>
+<header class="">
+		<a href="index.php" class="logo"><span>techStore</span></a>
+		<div class="main">
+			<a href="./shtoProdukt.php" class="user"><i class="fa-solid fa-plus"></i>Krijo një shpallje</a>
+			<div class="bx bx-menu" id="menu-icon"></div>
+		</div>
+	</header>
+  
+  <section class="w-full mx-auto bg-nordic-gray-light flex pt-12 md:pt-0 md:items-center bg-cover bg-right max-w-full bg-black" style="max-width:1600px; height: 18rem; background-image: url('./images/ttten.svg');">
+    <div class="container mx-auto flex justify-center h-14">
+      <!-- <?php //include('search.php');?> -->
     </div>
-  </nav>
-
-  <section class="w-full mx-auto bg-nordic-gray-light flex pt-12 md:pt-0 md:items-center bg-cover bg-right" style="max-width:1600px; height: 18rem; background-image: url('./images/banner.png');">
-
-    <div class="container mx-auto">
-
-      <div class="flex flex-col w-full lg:w-1/2 justify-center items-start  px-6 tracking-wide">
-        <h1 class="text-white text-2xl my-4">Check out all the products here.</h1>
-        <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black" href="#">products</a>
-
-      </div>
-
-    </div>
-
   </section>
+ 
 
+  <section class=" ">
+        <div class="container px-6 py-8 mx-auto">
+            <div class="lg:flex lg:-mx-2">
+                <div class="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4 ">
+                  <h1 class="flex justify-center text-2xl text-black">Top Brendet</h1>
+                  <div class="border-b-2 border-black opacity-70"></div>
+                    <a href="#" class="block font-medium text-black  hover:underline">Apple</a>
+                </div>
 
+                
+                <div class="mt-6 lg:mt-0 lg:px-2 lg:w-4/5">
+                    <div class="flex items-center justify-between text-sm tracking-widest uppercase ">
+                      <h1 class="text-2xl text-black">Shpalljet e Fundit</h1> 
+                    </div>
+                    <div class="border-b-2 border-black opacity-70 w-full mt-4"></div>                      
+                <?php
+                  $con=mysqli_connect("localhost","root","","projekti");
+                  mysqli_select_db($con,"projekti");
+                    
+                    $results_per_page = 10;  
+  
+                      //find the total number of results stored in the database  
+                      $query = "select * from `produktet`";  
+                      $result = mysqli_query($con, $query);  
+                      $number_of_result = mysqli_num_rows($result);  
+                    
+                      //determine the total number of pages available  
+                      $number_of_page = ceil ($number_of_result / $results_per_page);  
+                    
+                      //determine which page number visitor is currently on  
+                      if (!isset ($_GET['page']) ) {  
+                          $page = 1;  
+                      } else {  
+                          $page = $_GET['page'];  
+                      }  
+                    
+                      //determine the sql LIMIT starting number for the results on the displaying page  
+                      $page_first_result = ($page-1) * $results_per_page;  
+                    
+                      //retrieve the selected results from database   
+                      $query = "SELECT *FROM `produktet` LIMIT " . $page_first_result . ',' . $results_per_page ;  
+                      $result = mysqli_query($con, $query);  
 
-  <section class="bg-white py-8">
+                    while($row=mysqli_fetch_array($result)){
+                      
+                      $produkt_id = $row['produkt_id'];
+                      $produkt_title = $row['produkt_title'];
+                      $produkt_qmimi = $row['produkt_qmimi'];
+                      $produkt_image = $row['produkt_image'];
+                      $produkt_keywords = $row['produkt_keywords'];
+                      $qyteti = $row['qyteti'];
+                      $data = $row['data'];
+                      $produkt_content = substr($row['produkt_content'],0,30);
+                      
+                        
+                    ?>	
+                      <div class="grid grid-cols-1 gap-1 mt-2 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 mb-2">
+                          <section class="w-full mt-2">
+                          <div class="flex justify-between">
+                                      <p class="text-sm flex "><?php echo $qyteti; ?></p>
+                                      <p class="flex"><?php echo $data; ?></p>
+                                    </div>
+                            <a href="pages.php?id=<?php echo $produkt_id; ?>" class="flex flex-col items-center bg-[#242424] rounded-lg border shadow-md md:flex-row hover:bg-gray-100 dark:border-black  dark:hover:bg-[#191919]">
+                              
+                            <img class="bg-white p-4 object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+                               src="./images/<?php echo $produkt_image; ?>" alt="erorr404">
+                               
+                                <div class="flex flex-col justify-between p-4 leading-normal">
+                              
 
-    <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white"><?php echo $produkt_title; ?></h5>
+                                    <p class="mb-3 font-normal text-white opacity-70"><?php echo $produkt_content; ?>...</p>
+                                    <div class="flex text-white">
+                                      <p class="text-sm flex mr-6"><span class="opacity-75">Brandi: </span> <span class="text-white font-bold underline"><?php echo $produkt_keywords; ?></span></p>
+                                      <p class="text-sm flex"><span class="opacity-75">Çmimi: </span> <span class="text-white font-bold underline"><?php echo $produkt_qmimi; ?></span></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </section>
+                      </div>
+                      
+                      <?php } ?>
 
-      <nav id="store" class="w-full z-30 top-0 px-6 py-1">
-        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
+                      <?php 
+                      
+                      for($page = 1; $page<= $number_of_page; $page++) {  
+                        echo 
+                        '
+                        <a class="inline-flex items-center py-2 px-4 text-sm font-medium" href = "index.php?page=' . $page . '">' . $page . ' </a>
 
-          <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
-            Store
-          </a>
+                        ';  
+                    } 
+                    ?>
 
-          <div class="flex items-center" id="store-nav-content">
-
-            <a class="pl-3 inline-block no-underline hover:text-black" href="#">
-              <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
-              </svg>
-            </a>
-
-            <a class="pl-3 inline-block no-underline hover:text-black" href="#">
-              <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z" />
-              </svg>
-            </a>
-
-          </div>
+                </div>
+            </div>
         </div>
-      </nav>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <a href="#">
-          <?php include('./includes/main_content.php') ?>
-        </a>
-      </div>
-
-    </div>
-
-  </section>
+    </section>
 
 
 
-  <footer class="container mx-auto bg-white py-8 border-t border-gray-400">
-    <div class="container flex px-3 py-8 ">
-      <div class="w-full mx-auto flex flex-wrap">
-        <div class="flex w-full lg:w-1/2 ">
-          <div class="px-3 md:px-0">
-            <h3 class="font-bold text-gray-900">About</h3>
-            <p class="py-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel mi ut felis tempus commodo nec id erat. Suspendisse consectetur dapibus velit ut lacinia.
-            </p>
-          </div>
-        </div>
-        <div class="flex w-full lg:w-1/2 lg:justify-end lg:text-right">
-          <div class="px-3 md:px-0">
-            <h3 class="font-bold text-gray-900">Social</h3>
-            <ul class="list-reset items-center pt-3">
-              <li>
-                <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Add social links</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-</body>
-
-</html>
+    
+  </body>
+  
+  </html>
+  <?php } ?> 
