@@ -80,7 +80,7 @@ if(isset($_GET['search'])){
 	while ($search_row=mysqli_fetch_array($run_query)){
 
 
-	$produkt_id = $search_row['produkt_id'];
+	                    $produkt_id = $search_row['produkt_id'];
                       $produkt_title = $search_row['produkt_title'];
                       $produkt_qmimi = $search_row['produkt_qmimi'];
                       $produkt_image = $search_row['produkt_image'];
