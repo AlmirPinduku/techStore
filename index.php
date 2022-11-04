@@ -4,7 +4,7 @@
 		session_start(); 
 	} 
 
-if(!isset($_SESSION['user_name'])){
+if(isset($_SESSION['user_name'])){
 
 }
 else{
@@ -46,24 +46,78 @@ else{
 		<a href="index.php" class="logo"><span>techStore</span></a>
 		<div class="main">
 			<a href="./shtoProdukt.php" class="user"><i class="fa-solid fa-plus"></i>Krijo një shpallje</a>
-			<div class="bx bx-menu" id="menu-icon"></div>
+			<a href="./admin/login.php" class=""><i class=""></i>LOGIN</a>
+      
 		</div>
 	</header>
   
-  <section class="w-full mx-auto bg-nordic-gray-light flex pt-12 md:pt-0 md:items-center bg-cover bg-right max-w-full bg-black" style="max-width:1600px; height: 18rem; background-image: url('./images/ttten.svg');">
-    <div class="container mx-auto flex justify-center h-14">
-      <!-- <?php //include('search.php');?> -->
+  <section class="w-full mx-auto bg-nordic-gray-light flex pt-16 md:pt-0 md:items-center bg-cover bg-right max-w-full bg-black" style="max-width:1600px; height: 19rem; background-image: url('./images/ttten.svg');">
+    <div class="container mx-auto flex justify-center h-12">
+
+        <form action="search.php" method="get" enctype="multi/form-data" class="w-full flex justify-center max-w-7xl ">
+              <input type="text" name="value" placeholder="Kerko produktin
+              " size="25" class="w-full pl-3 rounded-md">
+
+              <button type="submit" name="search" class="btn btn-outline btn-info ml-4">SEARCH </button>
+        </form>
+
+
+                    <?php 
+                $con=mysqli_connect("localhost","root","","projekti");
+                mysqli_select_db($con,"projekti");
+
+                if(isset($_GET['search'])){
+                  
+                  $search_id = $_GET['value'];
+
+                  $search_query = "select * from produktet where produkt_title
+                  like '%$search_id%'";
+                  
+                  $run_query = mysqli_query($con, $search_query);
+                  
+                  while ($search_row=mysqli_fetch_array($run_query)){
+                  
+                  $produkt_id = $search_row['produkt_id'];
+                  $produkt_title = $search_row['produkt_title'];	
+                  $produkt_image = $search_row['produkt_image'];	
+                  $produkt_content = substr($search_row['produkt_content'],0,150);	
+                  
+                  ?>
+ 
+
+                <?php } }?>
     </div>
   </section>
  
 
-  <section class=" ">
+  <section class="">
         <div class="container px-6 py-8 mx-auto">
             <div class="lg:flex lg:-mx-2">
-                <div class="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4 ">
-                  <h1 class="flex justify-center text-2xl text-black">Top Brendet</h1>
+                <div class="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">
+                  <h1 class="flex justify-center text-2xl text-black uppercase ">Top Brendet</h1>
+                  <div class=" flex flex-col">
                   <div class="border-b-2 border-black opacity-70"></div>
-                    <a href="#" class="block font-medium text-black  hover:underline">Apple</a>
+                  <?php 
+                    $con=mysqli_connect("localhost","root","","projekti");
+                    mysqli_select_db($con,"projekti");
+
+
+                      $query = "SELECT DISTINCT `produkt_keywords` FROM `produktet`";
+                      
+                      $run_query = mysqli_query($con, $query);
+                      
+                      while($row=mysqli_fetch_array($run_query)){
+                      
+                        $produkt_keywords = $row['produkt_keywords'];
+  
+                      ?>	
+                        <a href="search.php?produkt_keywords=<?php echo $produkt_keywords; ?>" class="mt-2"><?php  echo $produkt_keywords;?></a>
+                        
+                        
+                        <?php } ?>
+ 
+                    <div class="border-b-2 border-black opacity-70 mt-2"></div>
+                    </div>
                 </div>
 
                 
@@ -97,7 +151,7 @@ else{
                       $page_first_result = ($page-1) * $results_per_page;  
                     
                       //retrieve the selected results from database   
-                      $query = "SELECT *FROM `produktet` LIMIT " . $page_first_result . ',' . $results_per_page ;  
+                      $query = "SELECT *FROM `produktet` LIMIT " . $page_first_result . ',' . $results_per_page;  
                       $result = mysqli_query($con, $query);  
 
                     while($row=mysqli_fetch_array($result)){
@@ -114,11 +168,7 @@ else{
                         
                     ?>	
                       <div class="grid grid-cols-1 gap-1 mt-2 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 mb-2">
-                          <section class="w-full mt-2">
-                          <div class="flex justify-between">
-                                      <p class="text-sm flex "><?php echo $qyteti; ?></p>
-                                      <p class="flex"><?php echo $data; ?></p>
-                                    </div>
+                          <section class="w-full mt-3">
                             <a href="pages.php?id=<?php echo $produkt_id; ?>" class="flex flex-col items-center bg-[#242424] rounded-lg border shadow-md md:flex-row hover:bg-gray-100 dark:border-black  dark:hover:bg-[#191919]">
                               
                             <img class="bg-white p-4 object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
@@ -130,8 +180,38 @@ else{
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white"><?php echo $produkt_title; ?></h5>
                                     <p class="mb-3 font-normal text-white opacity-70"><?php echo $produkt_content; ?>...</p>
                                     <div class="flex text-white">
-                                      <p class="text-sm flex mr-6"><span class="opacity-75">Brandi: </span> <span class="text-white font-bold underline"><?php echo $produkt_keywords; ?></span></p>
-                                      <p class="text-sm flex"><span class="opacity-75">Çmimi: </span> <span class="text-white font-bold underline"><?php echo $produkt_qmimi; ?></span></p>
+                                      <p class="text-sm flex mr-6"><span class="opacity-75">Brandi: </span> <span class="text-white font-bold underline ml-1">
+                                        <?php
+                                        if($produkt_keywords){
+                                          echo $produkt_keywords;
+                                        }else{
+                                          echo "#";
+                                        }
+                                          ?>
+                                      
+                                      </span></p>
+                                      
+                                      <p class="text-sm flex mr-6"><span class="opacity-75">Çmimi: </span> <span class="text-white font-bold underline ml-1">
+                                      <?php
+                                        if($produkt_qmimi){
+                                          echo $produkt_qmimi;
+                                        }else{
+                                          echo "#";
+                                        }
+                                          ?>
+                                    
+                                    </span></p>
+                                      <p class="text-sm flex mr-6"><span class="opacity-75">Qyteti: </span> <span class="text-white font-bold underline ml-1">
+                                      <?php
+                                        if($qyteti){
+                                          echo $qyteti;
+                                        }else{
+                                          echo "#";
+                                        }
+                                          ?>
+                                    
+                                    </span></p>
+                                      <p class="text-sm flex mr-6"><span class="opacity-75">Data: </span> <span class="text-white font-bold underline ml-1"><?php echo $data; ?></span></p>
                                     </div>
                                 </div>
                             </a>
