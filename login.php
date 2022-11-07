@@ -1,6 +1,6 @@
 <?php
     session_start(); 
-    include("functionss.php");
+    include("functions.php");
 ?>
 <!doctype html>
 <html lang="en">
@@ -11,7 +11,7 @@
     <meta name="author" content="">
 
 
-    <title></title>
+    <title>Login techStore</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
@@ -41,10 +41,10 @@
         }
       
       ?>
-      <div class="container">
+          <div class="container">
             <form method="post" class="form-signin">
-              <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-                
+                <a href="index.php" class="logo"><span>techStore</span></a>
+
                 
               <label for="inputEmail" class="sr-only">Email address</label>
               <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -52,7 +52,7 @@
               <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
              
               <button name="signin" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-              <a href="signup.php" class="mt-5 mb-3 text-muted">Create an account</a>
+              <a href="signin.php" class="mt-5 mb-3 text-muted">Create an account</a>
             </form>
           </div>
       

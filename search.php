@@ -37,7 +37,7 @@
 		</div>
 	</header>
   
-  <section class="w-full mx-auto bg-nordic-gray-light flex pt-12 md:pt-0 md:items-center bg-cover bg-right max-w-full bg-black" style="max-width:1600px; height: 19rem; background-image: url('./images/ttten.svg');">
+  <section class="w-full mx-auto bg-nordic-gray-light flex pt-12 md:pt-0 md:items-center bg-cover bg-right max-w-full bg-black" style="max-width:1600px; height: 19rem; background-image: url('./images/bannerr.png');">
     <div class="container mx-auto flex justify-center h-12">
     <form action="search.php" method="get" enctype="multi/form-data" class="w-full flex justify-center max-w-7xl ">
               <input type="text" name="value" placeholder="Kerko produktin
@@ -47,13 +47,35 @@
         </form>
     </div>
   </section>
+  
 <section class=" ">
         <div class="container px-6 py-8 mx-auto">
             <div class="lg:flex lg:-mx-2">
-                <div class="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4 ">
-                  <h1 class="flex justify-center text-2xl text-black uppercase">Top Brendet</h1>
+            <div class="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">
+                  <h1 class="flex justify-center text-2xl text-black uppercase ">Top Brendet</h1>
+                  <div class=" flex flex-col">
                   <div class="border-b-2 border-black opacity-70"></div>
-                    <a href="#" class="block font-medium text-black  hover:underline">Apple</a>
+                  <?php 
+                    $con=mysqli_connect("localhost","root","","projekti");
+                    mysqli_select_db($con,"projekti");
+
+
+                      $query = "SELECT DISTINCT `produkt_keywords` FROM `produktet`";
+                      
+                      $run_query = mysqli_query($con, $query);
+                      
+                      while($row=mysqli_fetch_array($run_query)){
+                      
+                        $produkt_keywords = $row['produkt_keywords'];
+  
+                      ?>	
+                        <a href="topprodukts.php?produkt_keywords=<?php echo $produkt_keywords; ?>" class="mt-2"><?php  echo $produkt_keywords;?></a>
+                        
+                        
+                        <?php } ?>
+ 
+                    <div class="border-b-2 border-black opacity-70 mt-2"></div>
+                    </div>
                 </div>
 
                 
@@ -93,12 +115,8 @@ if(isset($_GET['search'])){
 	
 	
 
-	<div class="grid grid-cols-1 gap-1 mt-2 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 mb-2">
-                          <section class="w-full mt-2">
-                          <div class="flex justify-between">
-                                      <p class="text-sm flex "><?php echo $qyteti; ?></p>
-                                      <p class="flex"><?php echo $data; ?></p>
-                                    </div>
+  <div class="grid grid-cols-1 gap-1 mt-2 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 mb-2">
+                          <section class="w-full mt-3">
                             <a href="pages.php?id=<?php echo $produkt_id; ?>" class="flex flex-col items-center bg-[#242424] rounded-lg border shadow-md md:flex-row hover:bg-gray-100 dark:border-black  dark:hover:bg-[#191919]">
                               
                             <img class="bg-white p-4 object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
@@ -110,8 +128,38 @@ if(isset($_GET['search'])){
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white"><?php echo $produkt_title; ?></h5>
                                     <p class="mb-3 font-normal text-white opacity-70"><?php echo $produkt_content; ?>...</p>
                                     <div class="flex text-white">
-                                      <p class="text-sm flex mr-6"><span class="opacity-75">Brandi: </span> <span class="text-white font-bold underline"><?php echo $produkt_keywords; ?></span></p>
-                                      <p class="text-sm flex"><span class="opacity-75">Çmimi: </span> <span class="text-white font-bold underline"><?php echo $produkt_qmimi; ?></span></p>
+                                      <p class="text-sm flex mr-6"><span class="opacity-75">Brandi: </span> <span class="text-white font-bold underline ml-1">
+                                        <?php
+                                        if($produkt_keywords){
+                                          echo $produkt_keywords;
+                                        }else{
+                                          echo "#";
+                                        }
+                                          ?>
+                                      
+                                      </span></p>
+                                      
+                                      <p class="text-sm flex mr-6"><span class="opacity-75">Çmimi: </span> <span class="text-white font-bold underline ml-1">
+                                      <?php
+                                        if($produkt_qmimi){
+                                          echo $produkt_qmimi;
+                                        }else{
+                                          echo "#";
+                                        }
+                                          ?>
+                                    
+                                    </span></p>
+                                      <p class="text-sm flex mr-6"><span class="opacity-75">Qyteti: </span> <span class="text-white font-bold underline ml-1">
+                                      <?php
+                                        if($qyteti){
+                                          echo $qyteti;
+                                        }else{
+                                          echo "#";
+                                        }
+                                          ?>
+                                    
+                                    </span></p>
+                                      <p class="text-sm flex mr-6"><span class="opacity-75">Data: </span> <span class="text-white font-bold underline ml-1"><?php echo $data; ?></span></p>
                                     </div>
                                 </div>
                             </a>

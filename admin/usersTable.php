@@ -18,7 +18,7 @@
 <body>
 <div class="bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen flex overflow-hidden text-sm">
   <div class="bg-white dark:bg-gray-900 dark:border-gray-800 w-20 flex-shrink-0 border-r border-gray-200 flex-col hidden sm:flex">
-    <div class="mt-10 text-gray-300 flex items-center justify-center">
+  <div class="mt-10 text-gray-300 flex items-center justify-center">
       <p>techStore</p>
     </div>
     <div class="mb-5 text-yellow-500 flex items-center justify-center">
@@ -38,9 +38,9 @@
     </div>
   </div>
   <div class="flex-grow overflow-hidden h-full flex flex-col">
-    <div class="h-20 lg:flex w-full border-b border-gray-200 dark:border-gray-800 hidden px-10">
+    <div class="h-9 lg:flex w-full border-b border-gray-200 dark:border-gray-800 hidden px-10">
       <div class="flex h-full text-gray-600 dark:text-gray-400">
-        <a href="./adminnav.php" class="cursor-pointer h-full border-b-2 border-transparent inline-flex items-center mr-8">All Produkts</a>
+        <a href="./adminnav.php" class="cursor-pointer h-full border-b-2 border-transparent inline-flex items-center mr-8  ">All Produkts</a>
         <a href="./usersTable.php" class="cursor-pointer h-full border-b-2 border-transparent inline-flex items-center mr-8">Users</a>
         <a href="./userPending.php" class="cursor-pointer h-full border-b-2 border-transparent inline-flex items-center mr-8">User Pending</a>
       </div>
@@ -51,8 +51,8 @@
         
       </div>
     </div>
-   <?php include('tableProdukts.php');?>
-  </div>
+    <?php include('allUsers.php');?>
+</div>
 </div>
 
 </header>

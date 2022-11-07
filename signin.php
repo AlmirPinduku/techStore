@@ -1,6 +1,6 @@
 <?php
-    session_start(); 
-    include("functionss.php");
+    session_start();
+    include("functions.php");
 ?>
 <!doctype html>
 <html lang="en">
@@ -8,51 +8,45 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
 
 
-    <title></title>
+    <title>Signup techStore</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
   </head>
-
-  <body class="text-center">
-      <?php
-      
-        if(isset($_POST['signin'])){
+    <?php
+        if(isset($_POST['signup'])){
+            $firstname = $_POST['firstname'];
+            $lastname = $_POST['lastname'];
             $password = $_POST['password'];
             $email = $_POST['email'];
-            $query = "SELECT * from `accounts`;";
-            if(count(fetchAll($query)) > 0){
-                  foreach(fetchAll($query) as $row){
-                    if($row['email']==$email&&$row['password']==$password){
-                        $_SESSION['login'] = true;
-                        $_SESSION['type'] = $row['type'];
-                        header('location:./adminnav.php');
-                    }else{
-                        echo "<script>alert('Wrong login details.')</script>";
-                    }
-                }
+            $message = "$lastname $firstname would like to request an account.";
+            $query = "INSERT INTO `requests` (`id`, `firstname`, `lastname`, `email`, `password`, `message`, `date`) VALUES (NULL, '$firstname', '$lastname', '$email', '$password', '$message', CURRENT_TIMESTAMP)";
+            if(performQuery($query)){
+                echo "<script>alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
             }else{
-                echo "<script>alert('Error.')</script>";
+                echo "<script>alert('Unknown error occured.')</script>";
             }
-
         }
-      
-      ?>
+    
+    ?>
+  <body class="text-center">
       <div class="container">
             <form method="post" class="form-signin">
-              <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-                
-                
-              <label for="inputEmail" class="sr-only">Email address</label>
+            <a href="index.php" class="logo"><span>techStore</span></a>
+              <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+              <label for="inputEmail" class="sr-only">Firstname</label>
+              <input name="firstname" type="text" id="inputEmail" class="form-control" placeholder="Firstname" required autofocus>
+                <label for="inputEmail" class="sr-only">Lastname</label>
+              <input name="lastname" type="text" id="inputEmail" class="form-control" placeholder="Lastname" required autofocus>
+                <label for="inputEmail" class="sr-only">Email address</label>
               <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
               <label for="inputPassword" class="sr-only">Password</label>
               <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-             
-              <button name="signin" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-              <a href="signup.php" class="mt-5 mb-3 text-muted">Create an account</a>
+              <button name="signup" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+              <a href="login.php" class="mt-5 mb-3 text-muted">Go back to login page</a>
             </form>
           </div>
       

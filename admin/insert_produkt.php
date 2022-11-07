@@ -94,15 +94,14 @@ if(isset($_POST['submit'])){
 	else {
 		move_uploaded_file($image_tmp,"../images/$produkt_image");
 		
-		$insert_query = "insert into produktet
+		$insert_query = "INSERT INTO produktet
         (produkt_title,produkt_qmimi,produkt_image,produkt_keywords,produkt_content) 
-		values ('$produkt_title','$produkt_qmimi','$produkt_image',
+		VALUES ('$produkt_title','$produkt_qmimi','$produkt_image',
 		'$produkt_keywords','$produkt_content')";
 		
 		if(mysqli_query($con, $insert_query)){
 			
 		echo "<script>alert ('Produkti u publikua me sukses')</script>";
-		echo "<script>window.open('view_produkt.php','_self')</script>";
 		
 		}
 	}	

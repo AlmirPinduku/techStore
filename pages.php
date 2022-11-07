@@ -1,12 +1,19 @@
 <html>
 	<head>
-		<title>Miresevini ne marketin online</title>
-		        <link href="styles.css" rel="stylesheet">
-            <link href="./input.css" rel="stylesheet">
-            <script src="https://cdn.tailwindcss.com"></script>
+		<title>Produkti</title>
+		      <link href="styles.css" rel="stylesheet">
+          <link href="./nav.css" rel="stylesheet">
+          <script src="https://cdn.tailwindcss.com"></script>
+          <script src="//code.tidio.co/fptihodyl0nxqlspzxvujwsxyrpxttll.js" async></script>
+
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <link href="https://cdn.jsdelivr.net/npm/daisyui@2.33.0/dist/full.css" rel="stylesheet" type="text/css" />
 	</head>
 
-<body>
+<body class="bg-black">
 
 <?php
 $con=mysqli_connect("localhost","root","","projekti");
@@ -28,69 +35,102 @@ while($row=mysqli_fetch_array($run_query)){
 	$produkt_image = $row['produkt_image'];
 	$produkt_keywords = $row['produkt_keywords'];
 	$produkt_content =$row['produkt_content'];
+  $viberNumber = $row['viberNumber'];
+	$wpViber = $row['wpNumber'];
+	$qyteti = $row['qyteti'];
+	$emriUser = $row['emriUser'];
+	$date = $row['data'];
 	
 
 ?>
-<section class="text-gray-400 bg-[#333333] body-font overflow-hidden h-full">
-  <div class="container px-5 py-60 mx-auto">
-    <div class="lg:w-4/5 mx-auto flex flex-wrap">
-	<img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="images/<?php echo $produkt_image; ?>"/>      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-        <h2 class="text-sm title-font text-gray-500 tracking-widest"><?php echo $produkt_keywords; ?></h2>
-        <h1 class="text-white text-3xl title-font font-medium mb-1"><?php echo $produkt_title; ?></h1>
-        <div class="flex mb-4">
-          <span class="flex items-center">
-            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-yellow-400" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-            </svg>
-            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-yellow-400" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-            </svg>
-            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-yellow-400" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-            </svg>
-            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-yellow-400" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-            </svg>
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-yellow-400" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-            </svg>
-            <span class="ml-3">4 Reviews</span>
-          </span>
-          <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-800 text-gray-500 space-x-2">
-            <a>
-              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-              </svg>
-            </a>
-            <a>
-              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-              </svg>
-            </a>
-            <a>
-              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-              </svg>
-            </a>
-          </span>
+<div class="bg-black">
+    <div class="pt-20">
+        <header class="">
+        <a href="index.php" class="logo"><span>techStore</span></a>
+        <div class="main">
         </div>
-        <p class="leading-relaxed"><?php echo $produkt_content; ?></p>
-        <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-500 mb-5">
-          <div class="flex"> 
+      </header>
+  
+      <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+        <div class="aspect-w-3 aspect-h-4 overflow-hidden rounded-lg lg:block">
+          <img src="./images/<?php echo $produkt_image; ?>" alt="techStore" class="h-full w-full object-cover object-center">
+        </div>
+        <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+          <div class="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
+            <!-- <h1>ALMIR</h1> -->
           </div>
-          <div class="flex ml-6 items-center">
-            <div class="relative">
+          <div class="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
+          <!-- <h1>ALMIR</h1> -->
+          </div>
+        </div>
+        <div class="aspect-w-4 aspect-h-5 sm:overflow-hidden sm:rounded-lg lg:aspect-w-3 lg:aspect-h-4">
+        <!-- <h1>ALMIR</h1> -->
+        </div>
+      </div>
+  
+      <div class="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
+        <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+        <h2 class="text-xs pr-4 font-medium text-gray-400">Data e publikimit - <?php echo $row['data'];?></h2>
+          <h1 class="text-2xl font-bold tracking-tight text-white sm:text-3xl"><?php echo $row['produkt_title'];?></h1>
+        </div>
+
+        <div class="mt-4 lg:row-span-3 lg:mt-0">
+          <p class="text-1xl tracking-tight text-white">Emri i Publikuesit - <span class="text-yellow-500"><?php
+          if ($emriUser) {
+            echo $emriUser;
+          }else{
+            echo "Nuk ka emër!";
+          }
+          
+          ?>
+          </span></p>
+          <p class="text-3xl tracking-tight text-white"><?php echo $row['produkt_qmimi'];?></p>
+          
+            <div class="h-14 flex justify-start items-center mt-4 ">
+            <button id="whatsapp" class="bg-white duration-500 mr-3   w-12 h-12 border-2 rounded-full border-green-600 transform hover:-translate-y-3  text-2xl text-green-500 hover:bg-green-600 hover:text-white">
+              <i class="fab fa-whatsapp"></i>
+            </button>
+            <?php
+            if ($wpViber) {
+              echo $wpViber;
+            }else{
+              echo "Nuk ka numër të WhatsAppit!";
+            }
+            
+            
+            ?>
+            </div>
+
+            <div class="h-14 flex justify-start items-center mt-4 ">
+            <button id="discord" class="bg-white transform hover:-translate-y-3 mr-3  border-2 w-12 h-12 rounded-full duration-500 text-indigo-500 border-indigo-500 hover:bg-indigo-500 hover:text-white text-2xl">
+              <i class="fa-brands fa-viber"></i>
+            </button>
+            <?php
+            if ($viberNumber) {
+              echo $viberNumber; 
+            }else{
+              echo "Nuk ka numër të Viberit!";
+            }            
+            ?>
+            </div>
+        </div>
+  
+        <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pb-16 lg:pr-8">
+          <div>
+            <h3 class="text-xl text-gray-400">Description rreth produktit</h3>
+  
+            <div class="space-y-6">
+              <p class="text-base text-white p-4"><?php echo $produkt_content; ?></p>
             </div>
           </div>
-        </div>
-        <div class="flex">
-          <span class="title-font font-medium text-2xl text-white"><?php echo $produkt_qmimi; ?></span>
-          <button class="flex ml-auto text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded">Button</button>
+  
+  
+          
         </div>
       </div>
     </div>
   </div>
-</section>
+  
 
 <?php } }?>
 </div>
