@@ -1,16 +1,16 @@
-<?php 
+<?php
 
-$con=mysqli_connect("localhost","root","","projekti");
-mysqli_select_db($con,"projekti");
+$con = mysqli_connect("localhost", "root", "", "projekti");
+mysqli_select_db($con, "projekti");
 
-if(isset($_GET['edit'])){
-	
-	$edit_id = $_GET['edit'];
-	
-	$edit_query = "SELECT * FROM produktet WHERE produkt_id='$edit_id'";
-	
-	$run_edit = mysqli_query($con, $edit_query);
-	
+if (isset($_GET['edit'])) {
+
+    $edit_id = $_GET['edit'];
+
+    $edit_query = "SELECT * FROM produktet WHERE produkt_id='$edit_id'";
+
+    $run_edit = mysqli_query($con, $edit_query);
+
 ?>
 <!DOCTYPE html>
 <html x-data="data()" lang="en">
@@ -21,8 +21,10 @@ if(isset($_GET['edit'])){
     <title>Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Favicon -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -37,22 +39,23 @@ if(isset($_GET['edit'])){
                 <div class="text-white">
                     <div class="flex p-2  bg-[#20252a]">
                         <div class="flex py-3 px-2 items-center">
-                            <p class="text-2xl text-yellow-500 font-semibold">tech</p <p class="ml-2 font-semibold italic">
+                            <p class="text-2xl text-yellow-500 font-semibold">tech</p <p
+                                class="ml-2 font-semibold italic">
                             Store</p>
                         </div>
                     </div>
-                    
+
                     <div>
                         <ul class="mt-6 leading-10">
                             <li class="relative px-2 py-1 ">
-                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500" 
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500"
                                     href=" ./adminnav.php">
                                     <i class="fa-solid fa-house"></i>
                                     <span class="ml-4">ALL PRODUKTS</span>
                                 </a>
                             </li>
                             <li class="relative px-2 py-1 ">
-                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500" 
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500"
                                     href="./allUsers.php">
                                     <i class="fa-solid fa-users"></i>
                                     <span class="ml-4">Users</span>
@@ -60,13 +63,13 @@ if(isset($_GET['edit'])){
                             </li>
 
                             <li class="relative px-2 py-1 ">
-                              <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500" 
-                                  href="./userPending.php">
-                                  <i class="fa-solid fa-code-pull-request"></i>
-                                  <span class="ml-4">PENDING</span>
-                              </a>
-                          </li>
-                            
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500"
+                                    href="./userPending.php">
+                                    <i class="fa-solid fa-code-pull-request"></i>
+                                    <span class="ml-4">PENDING</span>
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -81,8 +84,7 @@ if(isset($_GET['edit'])){
             x-transition:leave-end="opacity-0"
             class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div>
 
-        <aside
-            class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto  bg-[#20252a] md:hidden"
+        <aside class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto  bg-[#20252a] md:hidden"
             x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
             x-transition:enter-start="opacity-0 transform -translate-x-20" x-transition:enter-end="opacity-100"
             x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
@@ -92,21 +94,22 @@ if(isset($_GET['edit'])){
                 <div class="text-white">
                     <div class="flex p-2  bg-[#20252a]">
                         <div class="flex py-3 px-2 items-center">
-                        <p class="text-2xl text-yellow-500 font-semibold">tech</p <p class="ml-2 font-semibold italic">
+                            <p class="text-2xl text-yellow-500 font-semibold">tech</p <p
+                                class="ml-2 font-semibold italic">
                             Store</p>
                         </div>
                     </div>
                     <div>
                         <ul class="mt-6 leading-10">
-                        <li class="relative px-2 py-1 ">
-                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500" 
+                            <li class="relative px-2 py-1 ">
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500"
                                     href=" ./adminnav.php">
                                     <i class="fa-solid fa-house"></i>
                                     <span class="ml-4">All Produkts</span>
                                 </a>
                             </li>
                             <li class="relative px-2 py-1 ">
-                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500" 
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500"
                                     href="./allUsers.php">
                                     <i class="fa-solid fa-users"></i>
                                     <span class="ml-4">Users</span>
@@ -114,13 +117,13 @@ if(isset($_GET['edit'])){
                             </li>
 
                             <li class="relative px-2 py-1 ">
-                              <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500" 
-                                  href="./userPending.php">
-                                  <i class="fa-solid fa-code-pull-request"></i>
-                                  <span class="ml-4">Pending</span>
-                              </a>
-                          </li>
-                           
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500"
+                                    href="./userPending.php">
+                                    <i class="fa-solid fa-code-pull-request"></i>
+                                    <span class="ml-4">Pending</span>
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -141,8 +144,8 @@ if(isset($_GET['edit'])){
                         </svg>
                     </button>
 
-                            </template>
-                        </li>
+                    </template>
+                    </li>
                     </ul>
 
                 </div>
@@ -152,101 +155,125 @@ if(isset($_GET['edit'])){
 
                     <div class="grid grid-cols-1 gap-6">
                         <div class="grid grid-cols-1 col-span-12 gap-6 xxl:col-span-9">
-<?php
-while ($erow=mysqli_fetch_array($run_edit)){
+                            <?php
+    while ($erow = mysqli_fetch_array($run_edit)) {
 ?>
-<form method="post"  enctype="multipart/form-data" action="edit_produkt_by_id.php"  >
-<table class="">
-<section class="p-6 mx-auto bg-white rounded-md shadow-md mt-10">
-    <a href="./adminnav.php"><i class="fa-solid fa-arrow-left mb-2"></i></a>
-				<h1 class="text-xl font-bold text-black capitalize ">Edito shpalljen ne techStore</h1>
-				<form action="shtoProdukt.php" enctype="multipart/form-data" method="POST">
-					<div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-						<div>
-							<label class="text-black " for="username">Id i produktit</label>
-							<input id="username" type="text" readonly="readonly" name="id" value="<?php echo $erow['produkt_id']; ?>" class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md   focus:border-yellow-500 focus:outline-none">
-						</div>
+                            <form method="post" enctype="multipart/form-data" action="edit_produkt_by_id.php">
+                                <table class="">
+                                    <section class="p-6 mx-auto bg-white rounded-md shadow-md mt-10">
+                                        <a href="./adminnav.php"><i class="fa-solid fa-arrow-left mb-2"></i></a>
+                                        <h1 class="text-xl font-bold text-black capitalize ">Edito shpalljen ne
+                                            techStore</h1>
+                                        <form action="shtoProdukt.php" enctype="multipart/form-data" method="POST">
+                                            <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                                                <div>
+                                                    <label class="text-black " for="username">Id i produktit</label>
+                                                    <input id="username" type="text" readonly="readonly" name="id"
+                                                        value="<?php echo $erow['produkt_id']; ?>"
+                                                        class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md   focus:border-yellow-500 focus:outline-none">
+                                                </div>
 
-						<div>
-							<label class="text-black" for="emailAddress">Emri Produktit</label>
-							<input id="emailAddress" type="text" name="title" value="<?php echo $erow['produkt_title']; ?>" class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md   focus:border-yellow-500 focus:outline-none">
-						</div>
+                                                <div>
+                                                    <label class="text-black" for="emailAddress">Emri Produktit</label>
+                                                    <input id="emailAddress" type="text" name="title"
+                                                        value="<?php echo $erow['produkt_title']; ?>"
+                                                        class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md   focus:border-yellow-500 focus:outline-none">
+                                                </div>
 
-						<div>
-							<label class="text-black" for="password">Emri i Shpallesit Se Produktit</label>
-							<input id="password" type="text" name="keywords" value="<?php echo $erow['produkt_keywords']; ?>" class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md   focus:border-yellow-500 focus:outline-none">
-						</div>
+                                                <div>
+                                                    <label class="text-black" for="password">Emri i Shpallesit Se
+                                                        Produktit</label>
+                                                    <input id="password" type="text" name="keywords"
+                                                        value="<?php echo $erow['produkt_keywords']; ?>"
+                                                        class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md   focus:border-yellow-500 focus:outline-none">
+                                                </div>
 
-						<div>
-							<label class="text-black" for="passwordConfirmation">Numri i viber</label>
-							<input id="passwordConfirmation" type="text" name="viberNumberr"  value="<?php echo $erow['viberNumber']; ?>" class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md   focus:border-yellow-500 focus:outline-none">
-						</div>
+                                                <div>
+                                                    <label class="text-black" for="passwordConfirmation">Numri i
+                                                        viber</label>
+                                                    <input id="passwordConfirmation" type="text" name="viberNumberr"
+                                                        value="<?php echo $erow['viberNumber']; ?>"
+                                                        class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md   focus:border-yellow-500 focus:outline-none">
+                                                </div>
 
-						<div>
-							<label class="text-black">Viber Number</label>
-							<input id="password" type="text" name="wpNumberr"  value="<?php echo $erow['wpNumber']; ?>"  class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md   focus:border-yellow-500 focus:outline-none">
-						</div>
+                                                <div>
+                                                    <label class="text-black">Viber Number</label>
+                                                    <input id="password" type="text" name="wpNumberr"
+                                                        value="<?php echo $erow['wpNumber']; ?>"
+                                                        class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md   focus:border-yellow-500 focus:outline-none">
+                                                </div>
 
-						<div>
-							<label class="text-black" for="passwordConfirmation">Cmimi i produktit</label>
-							<input id="passwordConfirmation" type="text" name="qmimi" value="<?php echo $erow['produkt_qmimi'];?>" class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md   focus:border-yellow-500 focus:outline-none">
-						</div>
-						
-					
-						<div>
-							<label class="text-black" for="passwordConfirmation">Pershkrimi i Produktit</label>
-							<textarea id="textarea" type="textarea" name="content" rows="5"class="block w-full px-4 py-2 text-black bg-white border border-black rounded-md   focus:border-yellow-500 focus:outline-none"><?php echo $erow['produkt_content']; ?></textarea>
-						</div>
+                                                <div>
+                                                    <label class="text-black" for="passwordConfirmation">Cmimi i
+                                                        produktit</label>
+                                                    <input id="passwordConfirmation" type="text" name="qmimi"
+                                                        value="<?php echo $erow['produkt_qmimi']; ?>"
+                                                        class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md   focus:border-yellow-500 focus:outline-none">
+                                                </div>
 
 
-						<div>
-							<label class="block text-sm font-medium text-white">
-							Foto e Produktit
-						</label>
-						<div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-black border-dashed rounded-md">
-							<div class="space-y-1 text-center">
-							
-							<div class="flex text-sm text-gray-600">
-								<label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-black hover:text-yellow-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-								<span class="">Upload a file</span>
-								<input id="file-upload" name="image" placeholder="../images/<?php echo $erow['produkt_image'];?>" type="file" class="sr-only">
-								<img src="../images/<?php echo $erow['produkt_image'];?>" class="w-32 h-32 ">
-								</label>
-								
-							</div>
-							
-							</div>
-						</div>
-						</div>
-					</div>
+                                                <div>
+                                                    <label class="text-black" for="passwordConfirmation">Pershkrimi i
+                                                        Produktit</label>
+                                                    <textarea id="textarea" type="textarea" name="content" rows="5"
+                                                        class="block w-full px-4 py-2 text-black bg-white border border-black rounded-md   focus:border-yellow-500 focus:outline-none"><?php echo $erow['produkt_content']; ?></textarea>
+                                                </div>
 
-					<div class="flex justify-end mt-6">
-					<input type="submit" name="update" value="Ndryshoje tani"class="inline-flex justify-center rounded-md border border-transparent bg-yellow-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-									</div>
-				</form>
-			</section>
 
-<?php
+                                                <div>
+                                                    <label class="block text-sm font-medium text-white">
+                                                        Foto e Produktit
+                                                    </label>
+                                                    <div
+                                                        class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-black border-dashed rounded-md">
+                                                        <div class="space-y-1 text-center">
+
+                                                            <div class="flex text-sm text-gray-600">
+                                                                <label for="file-upload"
+                                                                    class="relative cursor-pointer bg-white rounded-md font-medium text-black hover:text-yellow-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                                                    <span class="">Upload a file</span>
+                                                                    <input id="file-upload" name="image"
+                                                                        placeholder="../images/<?php echo $erow['produkt_image']; ?>"
+                                                                        type="file" class="sr-only">
+                                                                    <img src="../images/<?php echo $erow['produkt_image']; ?>"
+                                                                        class="w-32 h-32 ">
+                                                                </label>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex justify-end mt-6">
+                                                <input type="submit" name="update" value="Ndryshoje tani"
+                                                    class="inline-flex justify-center rounded-md border border-transparent bg-yellow-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                            </div>
+                                        </form>
+                                    </section>
+
+                                    <?php
+    }
 }
-}	
 ?>
-</table>
-</form>
-  </div>
-</div>
-
-</header>
-</div>
+                                </table>
+                            </form>
+                        </div>
                     </div>
+
+                    </header>
                 </div>
-            </main>
         </div>
     </div>
-<script>
+    </main>
+    </div>
+    </div>
+    <script>
         function data() {
-          
+
             return {
-               
+
                 isSideMenuOpen: false,
                 toggleSideMenu() {
                     this.isSideMenuOpen = !this.isSideMenuOpen
@@ -272,9 +299,10 @@ while ($erow=mysqli_fetch_array($run_edit)){
                 togglePagesMenu() {
                     this.isPagesMenuOpen = !this.isPagesMenuOpen
                 },
-               
+
             }
         }
     </script>
 </body>
+
 </html>

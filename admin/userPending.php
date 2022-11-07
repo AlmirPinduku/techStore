@@ -1,9 +1,9 @@
 <?php
-    session_start(); 
-    include("functionss.php");
-    if($_SESSION['login']!==true){
-        header('location:login.php');
-    }
+session_start();
+include("functionss.php");
+if ($_SESSION['login'] !== true) {
+    header('location:login.php');
+}
 ?>
 <!DOCTYPE html>
 <html x-data="data()" lang="en">
@@ -14,8 +14,10 @@
     <title>Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Favicon -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -30,27 +32,30 @@
                 <div class="text-white">
                     <div class="flex p-2  bg-[#20252a]">
                         <div class="flex py-3 px-2 items-center">
-                            <p class="text-2xl text-yellow-500 font-semibold">tech</p <p class="ml-2 font-semibold italic">
+                            <p class="text-2xl text-yellow-500 font-semibold">tech</p <p
+                                class="ml-2 font-semibold italic">
                             Store</p>
                         </div>
                     </div>
                     <div class="flex justify-center">
                         <div class="">
-                            
-                            <p class="font-bold text-base  text-gray-400 pt-2 text-center w-24"><?php echo $_SESSION['type'] ?></p>
+
+                            <p class="font-bold text-base  text-gray-400 pt-2 text-center w-24">
+                                <?php echo $_SESSION['type'] ?>
+                            </p>
                         </div>
                     </div>
                     <div>
                         <ul class="mt-6 leading-10">
                             <li class="relative px-2 py-1 ">
-                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500" 
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500"
                                     href=" ./adminnav.php">
                                     <i class="fa-solid fa-house"></i>
                                     <span class="ml-4">All Produkts</span>
                                 </a>
                             </li>
                             <li class="relative px-2 py-1 ">
-                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500" 
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500"
                                     href="./usersTable.php">
                                     <i class="fa-solid fa-users"></i>
                                     <span class="ml-4">Users</span>
@@ -58,13 +63,13 @@
                             </li>
 
                             <li class="relative px-2 py-1 ">
-                              <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500" 
-                                  href="./userPending.php">
-                                  <i class="fa-solid fa-code-pull-request"></i>
-                                  <span class="ml-4">Pending</span>
-                              </a>
-                          </li>
-                            
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500"
+                                    href="./userPending.php">
+                                    <i class="fa-solid fa-code-pull-request"></i>
+                                    <span class="ml-4">Pending</span>
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -79,8 +84,7 @@
             x-transition:leave-end="opacity-0"
             class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div>
 
-        <aside
-            class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto  bg-[#20252a] md:hidden"
+        <aside class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto  bg-[#20252a] md:hidden"
             x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
             x-transition:enter-start="opacity-0 transform -translate-x-20" x-transition:enter-end="opacity-100"
             x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
@@ -90,21 +94,22 @@
                 <div class="text-white">
                     <div class="flex p-2  bg-[#20252a]">
                         <div class="flex py-3 px-2 items-center">
-                        <p class="text-2xl text-yellow-500 font-semibold">tech</p <p class="ml-2 font-semibold italic">
+                            <p class="text-2xl text-yellow-500 font-semibold">tech</p <p
+                                class="ml-2 font-semibold italic">
                             Store</p>
                         </div>
                     </div>
                     <div>
                         <ul class="mt-6 leading-10">
-                        <li class="relative px-2 py-1 ">
-                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500" 
+                            <li class="relative px-2 py-1 ">
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500"
                                     href=" ./adminnav.php">
                                     <i class="fa-solid fa-house"></i>
                                     <span class="ml-4">ALL PRODUKTS</span>
                                 </a>
                             </li>
                             <li class="relative px-2 py-1 ">
-                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500" 
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500"
                                     href="./allUsers.php">
                                     <i class="fa-solid fa-users"></i>
                                     <span class="ml-4">Users</span>
@@ -112,13 +117,13 @@
                             </li>
 
                             <li class="relative px-2 py-1 ">
-                              <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500" 
-                                  href="./userPending.php">
-                                  <i class="fa-solid fa-code-pull-request"></i>
-                                  <span class="ml-4">PENDING</span>
-                              </a>
-                          </li>
-                           
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-yellow-500"
+                                    href="./userPending.php">
+                                    <i class="fa-solid fa-code-pull-request"></i>
+                                    <span class="ml-4">PENDING</span>
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -177,7 +182,7 @@
                                     @click.away="closeProfileMenu" @keydown.escape="closeProfileMenu"
                                     class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-black border border-black rounded-md shadow-md"
                                     aria-label="submenu">
-                                    
+
                                     <li class="flex">
                                         <a class="text-white inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
                                             href="./logout.php">
@@ -201,8 +206,8 @@
 
                     <div class="grid grid-cols-12 gap-6">
                         <div class="grid grid-cols-12 col-span-12 gap-6 xxl:col-span-9">
-                          <?php include('./tablePending.php'); ?>
-                      </div>
+                            <?php include('./tablePending.php'); ?>
+                        </div>
                     </div>
                 </div>
             </main>
@@ -210,9 +215,9 @@
     </div>
     <script>
         function data() {
-          
+
             return {
-               
+
                 isSideMenuOpen: false,
                 toggleSideMenu() {
                     this.isSideMenuOpen = !this.isSideMenuOpen
@@ -238,9 +243,10 @@
                 togglePagesMenu() {
                     this.isPagesMenuOpen = !this.isPagesMenuOpen
                 },
-               
+
             }
         }
     </script>
 </body>
+
 </html>

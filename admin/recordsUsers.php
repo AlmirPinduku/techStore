@@ -1,50 +1,60 @@
 <?php
-              
-  $con = mysqli_connect("localhost","root","","projekti");
 
-  $search = $_GET['search'];
+$con = mysqli_connect("localhost", "root", "", "projekti");
 
-
-  $query = "SELECT * FROM `accounts` WHERE firstname LIKE '%$search%'";
+$search = $_GET['search'];
 
 
-  $resultt = mysqli_query($con,$query);
+$query = "SELECT * FROM `accounts` WHERE firstname LIKE '%$search%'";
 
-  if(mysqli_num_rows($resultt)==0){
-    echo "<tr><td colspan='2'>No records found!</td></tr>";
-    exit;
-  }
 
-  while($data = mysqli_fetch_assoc($resultt))
-  {
-    ?>
+$resultt = mysqli_query($con, $query);
 
-    
+if (mysqli_num_rows($resultt) == 0) {
+        echo "<tr><td colspan='2'>No records found!</td></tr>";
+        exit;
+}
+
+while ($data = mysqli_fetch_assoc($resultt)) {
+?>
+
+
 <tr>
         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-            <p><?php echo "$data[id]" ?></p>
-            
+                <p>
+                        <?php echo "$data[id]" ?>
+                </p>
+
         </td>
 
         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-            <p><?php echo "$data[firstname]" ?></p>
+                <p>
+                        <?php echo "$data[firstname]" ?>
+                </p>
         </td>
         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                <p><?php echo "$data[lastname]" ?></p>
+                <p>
+                        <?php echo "$data[lastname]" ?>
+                </p>
         </td>
         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                <p><?php echo "$data[email]" ?></p>
+                <p>
+                        <?php echo "$data[email]" ?>
+                </p>
         </td>
 
         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                <p><?php echo "$data[type]" ?></p>
+                <p>
+                        <?php echo "$data[type]" ?>
+                </p>
         </td>
 
         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                <p><?php echo "$data[password]" ?></p>
+                <p>
+                        <?php echo "$data[password]" ?>
+                </p>
         </td>
-        
 
- 
-    <?php } ?>                 
-    
+
+
+        <?php } ?>
