@@ -1,5 +1,5 @@
 <?php
-    session_start(); //we need session for the log in thingy XD 
+    session_start();
     include("functionss.php");
 ?>
 <!doctype html>

@@ -32,20 +32,20 @@ else{
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.33.0/dist/full.css" rel="stylesheet" type="text/css" />
 
+
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.33.0/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
 <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
 
-  <header class="">
+<header class="">
 		<a href="index.php" class="logo"><span>techStore</span></a>
 		<div class="main">
-			<a href="./shtoProdukt.php" class="user"><i class="fa-solid fa-plus"></i>Krijo një shpallje</a>
-			<a href="./login.php" class=""><i class=""></i>LOGIN</a>
-			<a href="./signin.php" class=""><i class=""></i>SIGN UP</a>
-      
+			<a href="./shtoProdukt.php" class="user"><i class="fa-solid fa-plus"></i>Krijo një shpallje</a>      
 		</div>
 	</header>
   
@@ -68,7 +68,7 @@ else{
                   
                   $search_id = $_GET['value'];
 
-                  $search_query = "select * from produktet where produkt_keywords
+                  $search_query = "select * from produktet where produkt_title
                   like '%$search_id%'";
                   
                   $run_query = mysqli_query($con, $search_query);
@@ -76,9 +76,9 @@ else{
                   while ($search_row=mysqli_fetch_array($run_query)){
                   
                   $produkt_id = $search_row['produkt_id'];
-                  $produkt_keywords = $search_row['produkt_keywords'];
-	
-                  	
+                  $produkt_title = $search_row['produkt_title'];	
+                  $produkt_image = $search_row['produkt_image'];	
+                  $produkt_content = substr($search_row['produkt_content'],0,150);	
                   
                   ?>
  
@@ -127,27 +127,16 @@ else{
                 <?php
                   $con=mysqli_connect("localhost","root","","projekti");
                   mysqli_select_db($con,"projekti");
+                  
+                  if(isset($_GET['produkt_keywords'])){
+                  
+                    $produkt_keywords = $_GET['produkt_keywords'];
+                  
+                    $select_query = "select * from produktet where produkt_keywords='$produkt_keywords'";
+                      
+                    $run_query = mysqli_query($con, $select_query);
                     
-                    $results_per_page = 10;  
-  
-                      $query = "select * from `produktet`";  
-                      $result = mysqli_query($con, $query);  
-                      $number_of_result = mysqli_num_rows($result);  
-                    
-                      $number_of_page = ceil ($number_of_result / $results_per_page);  
-                    
-                      if (!isset ($_GET['page']) ) {  
-                          $page = 1;  
-                      } else {  
-                          $page = $_GET['page'];  
-                      }  
-                    
-                      $page_first_result = ($page-1) * $results_per_page;  
-                    
-                      $query = "SELECT *FROM `produktet` LIMIT " . $page_first_result . ',' . $results_per_page;  
-                      $result = mysqli_query($con, $query);  
-
-                    while($row=mysqli_fetch_array($result)){
+                    while($row=mysqli_fetch_array($run_query)){
                       
                       $produkt_id = $row['produkt_id'];
                       $produkt_title = $row['produkt_title'];
@@ -213,17 +202,6 @@ else{
                       
                       <?php } ?>
 
-                      <?php 
-                      
-                      for($page = 1; $page<= $number_of_page; $page++) {  
-                        echo 
-                        '
-                          <a class="inline-flex items-center py-2 px-4 text-sm font-medium bg-black rounded-sm text-white" href = "index.php?page=' . $page . '">' . $page . ' </a>
-                         
-                        '; 
-                    } 
-                    ?>
-
                 </div>
             </div>
         </div>
@@ -235,4 +213,4 @@ else{
   </body>
   
   </html>
-  <?php } ?> 
+  <?php } }?> 
