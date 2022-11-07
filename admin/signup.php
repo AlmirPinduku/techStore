@@ -46,7 +46,7 @@
               <label for="inputPassword" class="sr-only">Password</label>
               <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
               <button name="signup" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-              <a href="login.php" class="mt-5 mb-3 text-muted">Go back to login page</a>
+              <a href="./index.php" class="mt-5 mb-3 text-muted">Go back to login page</a>
             </form>
           </div>
       

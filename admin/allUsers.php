@@ -1,31 +1,54 @@
-
-
-<div class="flex-grow flex overflow-x-hidden">
-
-      <div class="flex-grow bg-white dark:bg-gray-900 overflow-y-auto">
-        <div class="sm:px-7 sm:pt-7 px-4 pt-4 flex flex-col w-full border-b border-gray-200 bg-white dark:bg-gray-900 dark:text-white dark:border-gray-800 sticky top-0">
-          
-          <div class="flex items-center space-x-3 sm:mt-7 mt-4">
-            <p class="px-3 border-b-2 border-blue-500 text-blue-500 dark:text-white dark:border-white pb-1.5">User details</p>
-            
-          </div>
-        </div>
-        <div class="sm:p-7 p-4">
-          <div class="flex w-full items-center">
-            
-          </div>
-          <table class="w-full text-left">
-            <thead>
-              <tr class="text-gray-400">
-                <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">User ID</th>
-                <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Firstname</th>
-                <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">Lastname</th>
-                <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Email</th>
-                <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Type</th>
-                <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Password</th>
-              </tr>
-            </thead>
-            <tbody class="text-gray-600 dark:text-gray-100"></tbody>
+<div class="col-span-12 mt-5">
+  <div class="grid gap-2 grid-cols-1 lg:grid-cols-1">
+      <div class="bg-white p-4 shadow-lg rounded-lg">
+          <h1 class="font-bold text-base">Table</h1>
+          <div class="mt-4">
+              <div class="flex flex-col">
+                  <div class="-my-2 overflow-x-auto">
+                      <div class="py-2 align-middle inline-block min-w-full">
+                          <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg bg-white">
+                              <table class="min-w-full divide-y divide-gray-200">
+                                  <thead>
+                                      <tr>
+                                          <th
+                                              class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                              <div class="flex cursor-pointer">
+                                                  <span class="mr-2">ID</span>
+                                              </div>
+                                          </th>
+                                          <th
+                                              class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                              <div class="flex cursor-pointer">
+                                                  <span class="mr-2">FIRST NAME</span>
+                                              </div>
+                                          </th>
+                                          <th
+                                              class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                              <div class="flex cursor-pointer">
+                                                  <span class="mr-2">LAST NAME</span>
+                                              </div>
+                                          </th>
+                                          <th
+                                              class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                              <div class="flex cursor-pointer">
+                                                  <span class="mr-2">EMAIL</span>
+                                              </div>
+                                          </th>
+                                          <th
+                                              class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                              <div class="flex cursor-pointer">
+                                                  <span class="mr-2">TYPE</span>
+                                              </div>
+                                          </th>
+                                          <th
+                                              class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                              <div class="flex cursor-pointer">
+                                                  <span class="mr-2">PASSWORD</span>
+                                              </div>
+                                          </th>
+                                      </tr>
+                                                                </thead>
+                                                                <tbody class="bg-white divide-y divide-gray-200" id="table_data"></tbody>
 
                                 
                     <?php
@@ -46,36 +69,39 @@
                         $password = $row['password'];
 
                     ?>
-              <tr>
-              <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                  <div class="flex items-center">
-                  <?php echo $user_id; ?>
-                  </div>
-                </td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                  <div class="flex items-center">
-                  <?php echo $firstname; ?>
-                  </div>
-                </td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                  <div class="flex items-center">
-                  <?php echo $lastname; ?>
-                  </div>
-                </td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden"><?php echo $email; ?></td>
-
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden"><?php echo $type; ?></td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden"><?php echo $password; ?></td>
- 
-                  </div>
-                </td>
-              </tr>
+              
               <?php } ?>
-            </tbody>
-          </table>
-          
-        
-      </div>
-    </div>
-
+                
+              </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
     	
+  <script>
+
+    function load_data(search='')
+    {
+      let xhr = new XMLHttpRequest();
+
+      xhr.open("GET","recordsUsers.php?search="+search,true);
+
+      xhr.onprogress = function(){
+        document.getElementById('table_data').innerHTML = `<div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>`;
+      }
+
+      xhr.onload = function(){
+        document.getElementById('table_data').innerHTML = xhr.responseText;
+      }
+
+      xhr.send();
+    }
+
+    load_data();
+</script>

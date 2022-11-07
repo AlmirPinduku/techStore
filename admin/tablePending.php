@@ -10,63 +10,61 @@
                               <table class="min-w-full divide-y divide-gray-200">
                                   <thead>
                                       <tr>
-                                          <th
+                                      <th
                                               class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                               <div class="flex cursor-pointer">
-                                                  <span class="mr-2">PRODUCT ID</span>
+                                                  <span class="mr-2">ID</span>
                                               </div>
                                           </th>
                                           <th
                                               class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                               <div class="flex cursor-pointer">
-                                                  <span class="mr-2">PRODUCT TITLE</span>
+                                                  <span class="mr-2">EMAIL</span>
                                               </div>
                                           </th>
                                           <th
                                               class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                               <div class="flex cursor-pointer">
-                                                  <span class="mr-2">CMIMI</span>
+                                                  <span class="mr-2">MESSAGE</span>
                                               </div>
                                           </th>
                                           <th
                                               class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                               <div class="flex cursor-pointer">
-                                                  <span class="mr-2">DESCRIPTION</span>
+                                                  <span class="mr-2">DATE</span>
                                               </div>
                                           </th>
                                           <th
                                               class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                               <div class="flex cursor-pointer">
-                                                  <span class="mr-2">ACTION</span>
+                                                  <span class="mr-2">REJECT</span>
+                                              </div>
+                                          </th>
+                                          <th
+                                              class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                              <div class="flex cursor-pointer">
+                                                  <span class="mr-2">ACCEPT</span>
                                               </div>
                                           </th>
                                       </tr>
                                                                 </thead>
                                                                 <tbody class="bg-white divide-y divide-gray-200" id="table_data"></tbody>
-                                                                    
+                                                                
 
-                                
-                    <?php
-                    $con=mysqli_connect("localhost","root","","projekti");
-                    mysqli_select_db($con,"projekti");
+<?php
+      
+          $query = "select * from `requests`;";
+          if(count(fetchAll($query))>0){
+              foreach(fetchAll($query) as $row){
+                  ?>
 
-                    $query = "select * from produktet order by 1 DESC";
+                  
+      <?php
+              }
+          }
+      ?>
 
-                    $run = mysqli_query($con, $query);
-
-                    while($row=mysqli_fetch_array($run)){
-                        
-                        $produkt_id = $row['produkt_id'];
-                        $produkt_title = $row['produkt_title'];
-                        $produkt_qmimi = $row['produkt_qmimi'];
-                        $produkt_image = $row['produkt_image'];
-                        $produkt_content = substr($row['produkt_content'],0,20);
-
-                    ?>
-              
-              <?php } ?>
-                                                              
-                                                            </table>
+</table>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -82,7 +80,7 @@
     {
       let xhr = new XMLHttpRequest();
 
-      xhr.open("GET","records.php?search="+search,true);
+      xhr.open("GET","recordsPending.php?search="+search,true);
 
       xhr.onprogress = function(){
         document.getElementById('table_data').innerHTML = `<div class="spinner-border" role="status">
