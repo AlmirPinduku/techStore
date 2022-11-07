@@ -68,7 +68,7 @@ else{
                   
                   $search_id = $_GET['value'];
 
-                  $search_query = "select * from produktet where produkt_title
+                  $search_query = "select * from produktet where produkt_keywords
                   like '%$search_id%'";
                   
                   $run_query = mysqli_query($con, $search_query);
@@ -76,9 +76,9 @@ else{
                   while ($search_row=mysqli_fetch_array($run_query)){
                   
                   $produkt_id = $search_row['produkt_id'];
-                  $produkt_title = $search_row['produkt_title'];	
-                  $produkt_image = $search_row['produkt_image'];	
-                  $produkt_content = substr($search_row['produkt_content'],0,150);	
+                  $produkt_keywords = $search_row['produkt_keywords'];
+	
+                  	
                   
                   ?>
  
@@ -130,25 +130,20 @@ else{
                     
                     $results_per_page = 10;  
   
-                      //find the total number of results stored in the database  
                       $query = "select * from `produktet`";  
                       $result = mysqli_query($con, $query);  
                       $number_of_result = mysqli_num_rows($result);  
                     
-                      //determine the total number of pages available  
                       $number_of_page = ceil ($number_of_result / $results_per_page);  
                     
-                      //determine which page number visitor is currently on  
                       if (!isset ($_GET['page']) ) {  
                           $page = 1;  
                       } else {  
                           $page = $_GET['page'];  
                       }  
                     
-                      //determine the sql LIMIT starting number for the results on the displaying page  
                       $page_first_result = ($page-1) * $results_per_page;  
                     
-                      //retrieve the selected results from database   
                       $query = "SELECT *FROM `produktet` LIMIT " . $page_first_result . ',' . $results_per_page;  
                       $result = mysqli_query($con, $query);  
 
@@ -223,9 +218,9 @@ else{
                       for($page = 1; $page<= $number_of_page; $page++) {  
                         echo 
                         '
-                        <a class="inline-flex items-center py-2 px-4 text-sm font-medium" href = "index.php?page=' . $page . '">' . $page . ' </a>
-
-                        ';  
+                          <a class="inline-flex items-center py-2 px-4 text-sm font-medium bg-black rounded-sm text-white" href = "index.php?page=' . $page . '">' . $page . ' </a>
+                         
+                        '; 
                     } 
                     ?>
 

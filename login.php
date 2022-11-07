@@ -5,15 +5,13 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-
-    <title>Login techStore</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Login techStore</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="app.js"></script>
 
   </head>
 
@@ -40,24 +38,48 @@
 
         }
       
-      ?>
-          <div class="container">
-            <form method="post" class="form-signin">
-                <a href="index.php" class="logo"><span>techStore</span></a>
-
+      ?>  
+        <div class="h-screen md:flex">
+          
+          <div class="flex md:w-1/2 justify-center py-10 items-center bg-white">
+            <form method="post" class="bg-white">
+              <h1 class="text-gray-800 font-bold text-2xl mb-1">Login here</h1>
+              
                 
-              <label for="inputEmail" class="sr-only">Email address</label>
-              <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-              <label for="inputPassword" class="sr-only">Password</label>
-              <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-             
-              <button name="signin" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-              <a href="signin.php" class="mt-5 mb-3 text-muted">Create an account</a>
+                  <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                    </svg>
+                    <input class="pl-2 outline-none border-none" name="email" type="email" id="" placeholder="Email Address" />
+              </div>
+                    <div class="flex items-center border-2 py-2 px-3 rounded-2xl">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <input class="pl-2 outline-none border-none" name="password" type="password" id="" placeholder="Password" />
+              </div>
+                      <button type="submit" name="signin" class="block w-full bg-gradient-to-tr from-orange-700 to-yellow-300  mt-4 py-2 rounded-2xl text-white font-semibold mb-2">Login</button>
+                      <span class="text-sm ml-2  cursor-pointer">Don`t Have Account?</span>
+                      <a href="signin.php" class="text-sm ml-1 hover:text-orange-500 text-yellow-800 cursor-pointer">Signin</a>
+
             </form>
           </div>
-      
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <div class="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-yellow-800 to-orange-500 i justify-around items-center hidden">
+              <div>
+                <a href="./index.php" class="text-white font-bold text-4xl font-sans">techStore</a>
+                <p class="text-white mt-1">The most popular website for Buy&Sell Tech Produkts</p>
+              </div>
+              <div class="absolute -bottom-32 -left-40 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+              <div class="absolute -bottom-40 -left-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+              <div class="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+              <div class="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+            </div>
+          </div>
+
   </body>
 </html>

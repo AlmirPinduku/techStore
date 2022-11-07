@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
 
-
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Signup techStore</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -33,25 +33,61 @@
     
     ?>
   <body class="text-center">
-      <div class="container">
-            <form method="post" class="form-signin">
-            <a href="index.php" class="logo"><span>techStore</span></a>
-              <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
-              <label for="inputEmail" class="sr-only">Firstname</label>
-              <input name="firstname" type="text" id="inputEmail" class="form-control" placeholder="Firstname" required autofocus>
-                <label for="inputEmail" class="sr-only">Lastname</label>
-              <input name="lastname" type="text" id="inputEmail" class="form-control" placeholder="Lastname" required autofocus>
-                <label for="inputEmail" class="sr-only">Email address</label>
-              <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-              <label for="inputPassword" class="sr-only">Password</label>
-              <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-              <button name="signup" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-              <a href="login.php" class="mt-5 mb-3 text-muted">Go back to login page</a>
-            </form>
-          </div>
+   
+          <div class="h-screen md:flex">
+	<div class="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-yellow-800 to-orange-500 i justify-around items-center hidden">
+		<div>
+			<a href="./index.php" class="text-white font-bold text-4xl font-sans">techStore</a>
+			<p class="text-white mt-1">The most popular website for Buy&Sell Tech Produkts</p>
+		</div>
+		<div class="absolute -bottom-32 -left-40 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+		<div class="absolute -bottom-40 -left-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+		<div class="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+		<div class="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+	</div>
+	<div class="flex md:w-1/2 justify-center py-10 items-center bg-white">
+		<form method="post" class="bg-white">
+			<h1 class="text-gray-800 font-bold text-2xl mb-1">Signup here</h1>
+			<div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
+					fill="currentColor">
+					<path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+						clip-rule="evenodd" />
+				</svg>
+				<input class="pl-2 outline-none border-none" name="firstname" type="text" required id="" placeholder="First name" />
+      </div>
+				<div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+						viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+					</svg>
+					<input class="pl-2 outline-none border-none" name="lastname" type="text" required id="" placeholder="Last name" />
+      </div>
+					<div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+							viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+						</svg>
+						<input class="pl-2 outline-none border-none" name="email" type="email" required id="" placeholder="Email Address" />
+      </div>
+						<div class="flex items-center border-2 py-2 px-3 rounded-2xl">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
+								fill="currentColor">
+								<path fill-rule="evenodd"
+									d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+									clip-rule="evenodd" />
+							</svg>
+							<input class="pl-2 outline-none border-none" name="password" type="password" required id="" placeholder="Password" />
+      </div>
+							<button type="submit" name="signup" class="block w-full bg-gradient-to-tr from-yellow-300 to-orange-700  mt-4 py-2 rounded-2xl text-white font-semibold mb-2">Signup</button>
+							<span class="text-sm ml-2  cursor-pointer">You may also<a href="login.php" class="text-sm ml-1 hover:text-orange-500 cursor-pointer">Login</a>
+here </span><br>
+							
+		</form>
+	</div>
+</div>
       
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -69,7 +69,7 @@
                         $produkt_keywords = $row['produkt_keywords'];
   
                       ?>	
-                        <a href="topprodukts.php?produkt_keywords=<?php echo $produkt_keywords; ?>" class="mt-2"><?php  echo $produkt_keywords;?></a>
+                        <a href="topprodukts.php?produkt_keywords<?php echo $produkt_keywords; ?>" class="mt-2"><?php  echo $produkt_keywords;?></a>
                         
                         
                         <?php } ?>
@@ -81,7 +81,7 @@
                 
                 <div class="mt-6 lg:mt-0 lg:px-2 lg:w-4/5">
                     <div class="flex items-center justify-between text-sm tracking-widest uppercase ">
-                      <h1 class="text-2xl text-black">Shpalljet e Fundit</h1> 
+                      <h1 class="text-2xl text-black">Shpalljet e kerkuar</h1> 
                     </div>
                     <div class="border-b-2 border-black opacity-70 w-full mt-4"></div> 
 
