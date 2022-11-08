@@ -1,9 +1,6 @@
 <?php
-if (!isset($_SESSION)) {
+if (isset($_SESSION['firstname'])) {
   session_start();
-}
-
-if (isset($_SESSION['user_name'])) {
 
 } else {
 
@@ -161,7 +158,7 @@ if (isset($_SESSION['user_name'])) {
     $produkt_keywords = $row['produkt_keywords'];
     $qyteti = $row['qyteti'];
     $data = $row['data'];
-    $produkt_content = substr($row['produkt_content'], 0, 30);
+    $produkt_content = $row['produkt_content'];
 
 
                 ?>
@@ -181,7 +178,7 @@ if (isset($_SESSION['user_name'])) {
                     <?php echo $produkt_title; ?>
                   </h5>
                   <p class="mb-3 font-normal text-white opacity-70">
-                    <?php echo $produkt_content; ?>...
+                    <?php echo $produkt_content; ?>
                   </p>
                   <div class="flex text-white">
                     <p class="text-sm flex mr-6"><span class="opacity-75">Brandi: </span> <span
