@@ -19,31 +19,31 @@
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">FIRST NAME</span>
-                                                </div>
-                                            </th>
-                                            <th
-                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                <div class="flex cursor-pointer">
-                                                    <span class="mr-2">LAST NAME</span>
-                                                </div>
-                                            </th>
-                                            <th
-                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                <div class="flex cursor-pointer">
                                                     <span class="mr-2">EMAIL</span>
                                                 </div>
                                             </th>
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">TYPE</span>
+                                                    <span class="mr-2">MESSAGE</span>
                                                 </div>
                                             </th>
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">PASSWORD</span>
+                                                    <span class="mr-2">DATE</span>
+                                                </div>
+                                            </th>
+                                            <th
+                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                <div class="flex cursor-pointer">
+                                                    <span class="mr-2">REJECT</span>
+                                                </div>
+                                            </th>
+                                            <th
+                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                <div class="flex cursor-pointer">
+                                                    <span class="mr-2">ACCEPT</span>
                                                 </div>
                                             </th>
                                         </tr>
@@ -52,25 +52,17 @@
 
 
                                     <?php
-                    $con = mysqli_connect("localhost", "root", "", "projekti");
-                    mysqli_select_db($con, "projekti");
 
-                    $query = "select * from accounts";
+                                    $query = "select * from `requests`;";
+                                    if (count(fetchAll($query)) > 0) {
+                                        foreach (fetchAll($query) as $row) {
+                                    ?>
 
-                    $run = mysqli_query($con, $query);
 
-                    while ($row = mysqli_fetch_array($run)) {
-
-                        $user_id = $row['id'];
-                        $firstname = $row['firstname'];
-                        $lastname = $row['lastname'];
-                        $email = $row['email'];
-                        $type = $row['type'];
-                        $password = $row['password'];
-
-                    ?>
-
-                                    <?php } ?>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
 
                                 </table>
                             </div>
@@ -87,7 +79,7 @@
     function load_data(search = '') {
         let xhr = new XMLHttpRequest();
 
-        xhr.open("GET", "recordsUsers.php?search=" + search, true);
+        xhr.open("GET", "recordsPending.php?search=" + search, true);
 
         xhr.onprogress = function () {
             document.getElementById('table_data').innerHTML = `<div class="spinner-border" role="status">
