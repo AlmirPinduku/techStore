@@ -12,7 +12,7 @@ if (isset($_SESSION['firstname'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping</title>
+  <title>techStore</title>
   <link href="styles.css" rel="stylesheet">
   <link href="./nav.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -39,7 +39,6 @@ if (isset($_SESSION['firstname'])) {
   <header class="">
     <a href="index.php" class="logo"><span>techStore</span></a>
     <div class="main">
-      <!-- <a href="./shtoProdukt.php" class="user"><i class="fa-solid fa-plus"></i>Krijo një shpallje</a> -->
       <a href="./login.php" class=""><i class=""></i>LOGIN</a>
       <a href="./signin.php" class=""><i class=""></i>SIGN UP</a>
 
@@ -168,14 +167,14 @@ if (isset($_SESSION['firstname'])) {
                 class="flex flex-col items-center bg-[#242424] rounded-lg border shadow-md md:flex-row hover:bg-[#383838]">
 
                 <img
-                  class="bg-white p-4 object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" 
-                  src="./images/<?php 
-                   if ($produkt_image) {
-                    echo $produkt_image;
-                  } else {
-                    echo "default.png";
-                  }
-                  
+                  class="bg-white p-4 object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+                  src="./images/<?php
+    if ($produkt_image) {
+      echo $produkt_image;
+    } else {
+      echo "default.png";
+    }
+
                   ?>">
 
                 <div class="flex flex-col justify-between p-4 leading-normal">
@@ -251,9 +250,29 @@ if (isset($_SESSION['firstname'])) {
   </section>
 
 
+  <button id="to-top-button" onclick="goToTop()" title="Go To Top"
+        class="hidden fixed z-90 bottom-8 right-8 border-0 w-16 h-16 p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 focus:ring-4 focus:outline-none focus:ring-green-200 ">
+        <i class="fa-solid fa-arrow-up relative px-5 py-2.5 transition-all ease-in duration-75 rounded-md text-2xl text-white"></i>
+      </button>
 
+<script>
+        var toTopButton = document.getElementById("to-top-button");
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                toTopButton.classList.remove("hidden");
+            } else {
+                toTopButton.classList.add("hidden");
+            }
+        }
+
+        function goToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 
 </html>
 <?php } ?>
+

@@ -41,7 +41,7 @@ if (isset($_SESSION['user_name'])) {
 <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
 
   <header class="">
-    <a href="index.php" class="logo"><span>techStore</span></a>
+    <a href="index2.php" class="logo"><span>techStore</span></a>
     <div class="main">
       <a href="./shtoProdukt.php" class="user"><i class="fa-solid fa-plus"></i>Krijo një shpallje</a>
     </div>
@@ -223,7 +223,26 @@ if (isset($_SESSION['user_name'])) {
   </section>
 
 
+  <button id="to-top-button" onclick="goToTop()" title="Go To Top"
+        class="hidden fixed z-90 bottom-8 right-8 border-0 w-16 h-16 p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 focus:ring-4 focus:outline-none focus:ring-green-200 ">
+        <i class="fa-solid fa-arrow-up relative px-5 py-2.5 transition-all ease-in duration-75 rounded-md text-2xl text-white"></i>
+      </button>
 
+<script>
+        var toTopButton = document.getElementById("to-top-button");
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                toTopButton.classList.remove("hidden");
+            } else {
+                toTopButton.classList.add("hidden");
+            }
+        }
+
+        function goToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 
