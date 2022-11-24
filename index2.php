@@ -39,9 +39,8 @@ if (isset($_SESSION['firstname'])) {
   <header class="">
     <a href="index.php" class="logo"><span>techStore</span></a>
     <div class="main">
-      <!-- <a href="./shtoProdukt.php" class="user"><i class="fa-solid fa-plus"></i>Krijo një shpallje</a> -->
-      <a href="./login.php" class=""><i class=""></i>LOGIN</a>
-      <a href="./signin.php" class=""><i class=""></i>SIGN UP</a>
+      <a href="./shtoProdukt.php" class="user"><i class="fa-solid fa-plus"></i>Krijo një shpallje</a>
+      <a href="./logout.php" class=""><i class=""></i>Logout</a>
 
     </div>
   </header>

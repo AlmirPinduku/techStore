@@ -28,7 +28,7 @@ include("functions.php");
             if ($row['email'] == $email && $row['password'] == $password) {
               $_SESSION['login'] = true;
               $_SESSION['type'] = $row['type'];
-              header('location:./index.php');
+              header('location:./index2.php');
             } else {
               echo "<script>alert('Wrong login details.')</script>";
             }
