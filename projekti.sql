@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Pritësi (host): 127.0.0.1
--- Koha e gjenerimit: Nën 24, 2022 në 09:11 MD
+-- Koha e gjenerimit: Nën 25, 2022 në 05:33 MD
 -- Versioni i serverit: 10.4.25-MariaDB
 -- PHP Versioni: 8.1.10
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Databaza: `projekti`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura e tabelës për tabelën `accounts`
+--
+
+CREATE TABLE `accounts` (
+  `id` int(11) NOT NULL,
+  `firstname` text NOT NULL,
+  `lastname` text NOT NULL,
+  `email` text NOT NULL,
+  `type` text NOT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zbraz të dhënat për tabelën `accounts`
+--
+
+INSERT INTO `accounts` (`id`, `firstname`, `lastname`, `email`, `type`, `password`) VALUES
+(1, 'almir', 'pinduk', 'admin@admin.com', 'admin', '123'),
+(4, 'user', 'user', 'user@user.com', 'user', '321');
 
 -- --------------------------------------------------------
 
@@ -60,9 +83,53 @@ INSERT INTO `produktet` (`produkt_id`, `produkt_title`, `produkt_qmimi`, `produk
 (28, 'Apple iPhone 14 Pro, 128GB, Gold', '1,510.00 €', '14pro.png', 'Apple', 'Dizajni, qëndrueshmëria, funksionet dhe teknologjia e klasit të parë, e gjithë kjo dhe shumë më tepër fshihen në modelin Apple iPhone 14 Pro. Dynamic Island është një përvojë interaktive dhe tërheqëse e iPhone për të gjitha njoftimet, ', '+383045671235', '+383045671235', 'Prishtine', 'Albanian', '2022-10-11'),
 (29, 'Apple MacBook Air 13.6\", M2 8-core, 8GB, 512GB, 10-core GPU, Midnight', '1,510.00 €', 'macbookwhite.jpg', 'Apple', 'Apple ka përmirësuar performancën, videon dhe zërin gjatë gjeneratës së ardhshme me çipin M1. MacBook Air 13 (M2) është më i hollë, më i lehtë dhe ka ende qëndrueshmëri të madhe dhe funksionim krejtësisht të qetë. Me MacBook Air të ri (M2), ju merrni edhe më shumë performancë për aplikacione kërkuese, të tilla si redaktimi i videos me definicion të lartë, dizajni grafik dhe aplikacione të tjera krijuese. Baza e këtij versioni të veçantë të Apple MacBook Air 13 (M2) është një procesor Apple M2 me 8 bërthama me një 8-core GPU dhe një 16-core Neural Engine. Procesori përfshin gjithashtu 8 GB RAM. Ekrani 13.6 \"Liquid Retina IPS ka një rezolucion prej 2560 × 1664 piksele.', '+383045675544', '+383045675544', 'asd', 'asd', '2022-10-11');
 
+-- --------------------------------------------------------
+
+--
+-- Struktura e tabelës për tabelën `register`
+--
+
+CREATE TABLE `register` (
+  `id` int(255) NOT NULL,
+  `emri` varchar(255) DEFAULT NULL,
+  `mbiemri` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura e tabelës për tabelën `requests`
+--
+
+CREATE TABLE `requests` (
+  `id` int(11) NOT NULL,
+  `firstname` text NOT NULL,
+  `lastname` text NOT NULL,
+  `email` text NOT NULL,
+  `password` text NOT NULL,
+  `message` text NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zbraz të dhënat për tabelën `requests`
+--
+
+INSERT INTO `requests` (`id`, `firstname`, `lastname`, `email`, `password`, `message`, `date`) VALUES
+(3, 'almir', 'almir', 'almirpinduk@gmail.com', '123', 'almir almir would like to request an account.', '2022-11-22 13:37:35');
+
 --
 -- Indekset për tabelat e hedhura
 --
+
+--
+-- Indekset për tabelë `accounts`
+--
+ALTER TABLE `accounts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indekset për tabelë `produktet`
@@ -71,14 +138,32 @@ ALTER TABLE `produktet`
   ADD PRIMARY KEY (`produkt_id`);
 
 --
+-- Indekset për tabelë `requests`
+--
+ALTER TABLE `requests`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT për tabelat e hedhura
 --
+
+--
+-- AUTO_INCREMENT për tabelë `accounts`
+--
+ALTER TABLE `accounts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT për tabelë `produktet`
 --
 ALTER TABLE `produktet`
   MODIFY `produkt_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+
+--
+-- AUTO_INCREMENT për tabelë `requests`
+--
+ALTER TABLE `requests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
